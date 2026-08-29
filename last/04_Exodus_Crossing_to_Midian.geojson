@@ -1,0 +1,422 @@
+{
+  "type": "FeatureCollection",
+  "name": "الحدث الرابع: الخروج والحصار والعبور إلى مدين",
+  "metadata": {
+    "author": "Abdulwahed",
+    "version": "4.0",
+    "description": "الخروج من مركز الحكم جنوباً في الغور الغربي، الحصار داخل الوادي المغلق، العبور من الغرب (فلسطين) إلى الشرق (الأردن حالياً) عند المضيق الضحل وغرق المطاردين، ثم استكمال الطريق جنوباً إلى مدين.",
+    "tier_legend": {
+      "attested": "موقع أثري مثبت بالتنقيب أو النقوش",
+      "inferred": "ممر طبيعي أو محطة مياه يرجّحها المنطق التضاريسي",
+      "road": "طريق قديم موثّق الاستعمال",
+      "toponym": "اسم مكان يحفظ ذكرى نبي الله موسى أو هارون - شاهد على استمرار التسمية لا على الحدث",
+      "hypothesis": "فرضية الباحث"
+    },
+    "naming_convention": "الاسم الحديث ثم القديم بين قوسين",
+    "coordinate_note": "[longitude, latitude] WGS84 - النقاط الساحلية مراجعة ومزاحة إلى اليابسة"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "4أ: الخروج والحصار والعبور",
+        "stroke": "#2980b9",
+        "stroke-width": 5,
+        "stroke-opacity": 0.9,
+        "crossing_direction": "من الغرب (فلسطين) إلى الشرق (الأردن حالياً)"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.5017,
+            32.5036
+          ],
+          [
+            35.4436,
+            31.8711
+          ],
+          [
+            35.3,
+            31.16
+          ],
+          [
+            35.42,
+            31.14
+          ],
+          [
+            35.49,
+            31.19
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "4ب: من ضفة العبور جنوباً إلى مدين",
+        "stroke": "#5499c7",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "note": "يتبع طريق الملوك على الهضبة الشرقية - لا حاجة للعودة غرباً"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.49,
+            31.19
+          ],
+          [
+            35.701,
+            31.18
+          ],
+          [
+            35.6167,
+            30.7333
+          ],
+          [
+            35.56,
+            30.53
+          ],
+          [
+            35.5058,
+            30.3316
+          ],
+          [
+            35.4047,
+            30.3175
+          ],
+          [
+            35.734,
+            30.192
+          ],
+          [
+            35.008,
+            29.53
+          ],
+          [
+            34.948,
+            29.287
+          ],
+          [
+            34.97,
+            28.54
+          ],
+          [
+            35.0208,
+            28.4783
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "بيسان / تل الحصن (بيت شان)",
+        "modern_name": "بيسان / تل الحصن",
+        "ancient_name": "بيت شان",
+        "tier": "attested",
+        "marker-color": "#d35400",
+        "marker-size": "large",
+        "marker-symbol": "star",
+        "evidence": "مقرّ حاكم وحامية مصرية متصلة من الأسرة 18 حتى أواخر الأسرة 20؛ قوائم تحتمس الثالث ورسائل العمارنة؛ تمثال رمسيس الثالث ولوحتا سيتي الأول من الموقع.",
+        "event": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.5017,
+          32.5036
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "أريحا / تل السلطان (يريحو)",
+        "modern_name": "أريحا / تل السلطان",
+        "ancient_name": "يريحو",
+        "tier": "attested",
+        "marker-color": "#27ae60",
+        "marker-size": "large",
+        "evidence": "أقدم مدينة مسوّرة معروفة؛ نبع عين السلطان الدائم",
+        "event": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.4436,
+          31.8711
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "وادي الزويرة / زهار",
+        "modern_name": "وادي الزويرة / زهار",
+        "ancient_name": "—",
+        "tier": "inferred",
+        "marker-color": "#0074d9",
+        "marker-size": "large",
+        "evidence": "وادٍ ضيق ينحدر من برية الخليل جنوب مسادا وينتهي عند الحوض الضحل",
+        "event": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.3,
+          31.16
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "مضيق لينش عند اللسان",
+        "modern_name": "مضيق لينش عند اللسان",
+        "ancient_name": "—",
+        "tier": "hypothesis",
+        "marker-color": "#00d2d3",
+        "marker-size": "large",
+        "marker-symbol": "water",
+        "evidence": "عتبة عند نحو 402م تحت سطح البحر؛ الحوض الجنوبي متوسط عمقه أقل من 3 أمتار؛ جفّ فعلياً صيف 1976 فاتصل اللسان بالشاطئ الغربي",
+        "role": "النقطة الوحيدة في البحر الميت التي يمكن أن ينكشف قاعها - وقوعها في الماء مقصود",
+        "event": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.42,
+          31.14
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "شبه جزيرة اللسان",
+        "modern_name": "شبه جزيرة اللسان",
+        "ancient_name": "—",
+        "tier": "attested",
+        "marker-color": "#48c9b0",
+        "marker-size": "large",
+        "evidence": "اللسان الفاصل بين الحوضين، مخرج العبور على الضفة الشرقية",
+        "event": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.49,
+          31.19
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "الكرك (قير موآب / قير حارسة)",
+        "modern_name": "الكرك",
+        "ancient_name": "قير موآب / قير حارسة",
+        "tier": "attested",
+        "marker-color": "#16a085",
+        "marker-size": "large",
+        "evidence": "أول مركز مرتفع على الضفة الشرقية، على طريق الملوك",
+        "event": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.701,
+          31.18
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "بصيرة (الطفيلة) (بُصرة - عاصمة أدوم)",
+        "modern_name": "بصيرة (الطفيلة)",
+        "ancient_name": "بُصرة - عاصمة أدوم",
+        "tier": "attested",
+        "marker-color": "#16a085",
+        "marker-size": "large",
+        "evidence": "عاصمة أدوم في العصر الحديدي؛ معبد وقصر منقّبان",
+        "event": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.6167,
+          30.7333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "الشوبك",
+        "modern_name": "الشوبك",
+        "ancient_name": "—",
+        "tier": "inferred",
+        "marker-color": "#16a085",
+        "marker-size": "large",
+        "evidence": "محطة على طريق الملوك بين بصيرة والبتراء",
+        "event": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.56,
+          30.53
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "عين نبي الله موسى - وادي نبي الله موسى",
+        "modern_name": "عين نبي الله موسى - وادي نبي الله موسى",
+        "ancient_name": "—",
+        "tier": "toponym",
+        "marker-color": "#e67e22",
+        "marker-size": "large",
+        "marker-symbol": "water",
+        "evidence": "نبع دائم غزير ووادٍ يحملان اسم نبي الله موسى إلى اليوم، عند مدخل البتراء",
+        "caveat": "التسمية موثقة بيزنطياً وإسلامياً؛ لا إسناد أثري إلى العصر البرونزي",
+        "event": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.5058,
+          30.3316
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "جبل هارون (جبل هور (بحسب التقليد))",
+        "modern_name": "جبل هارون",
+        "ancient_name": "جبل هور (بحسب التقليد)",
+        "tier": "toponym",
+        "marker-color": "#e67e22",
+        "marker-size": "large",
+        "marker-symbol": "monument",
+        "evidence": "قمة نحو 1350م جنوب غرب البتراء، عليها مقام يُنسب إلى النبي هارون، وتحته دير بيزنطي منقّب",
+        "caveat": "الطبقات المنقّبة بيزنطية وإسلامية؛ التقليد راسخ وقديم لكنه ليس تأريخاً أثرياً",
+        "event": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.4047,
+          30.3175
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "معان",
+        "modern_name": "معان",
+        "ancient_name": "معان",
+        "tier": "attested",
+        "marker-color": "#16a085",
+        "marker-size": "large",
+        "evidence": "واحة ومحطة قوافل على طريق الملوك",
+        "event": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.734,
+          30.192
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "العقبة (أيلة)",
+        "modern_name": "العقبة",
+        "ancient_name": "أيلة",
+        "tier": "attested",
+        "marker-color": "#f1c40f",
+        "marker-size": "large",
+        "evidence": "عقدة الطرق الوحيدة بين الشام وشمال الحجاز",
+        "event": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.008,
+          29.53
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "حَقل",
+        "modern_name": "حَقل",
+        "ancient_name": "—",
+        "tier": "inferred",
+        "marker-color": "#16a085",
+        "marker-size": "large",
+        "evidence": "الممر الساحلي الضيق (الإحداثية مزاحة إلى اليابسة)",
+        "event": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.948,
+          29.287
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "وادي عِفال",
+        "modern_name": "وادي عِفال",
+        "ancient_name": "—",
+        "tier": "inferred",
+        "marker-color": "#16a085",
+        "marker-size": "large",
+        "evidence": "الشريان الطبيعي من الساحل إلى واحة البدع (الإحداثية مزاحة إلى مجرى الوادي)",
+        "event": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.97,
+          28.54
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "البدع / مغائر شعيب (مَدْيَن)",
+        "modern_name": "البدع / مغائر شعيب",
+        "ancient_name": "مَدْيَن",
+        "tier": "attested",
+        "marker-color": "#c0392b",
+        "marker-size": "large",
+        "marker-symbol": "embassy",
+        "evidence": "واحة وآبار ومقابر منحوتة بطراز نبطي. البعثة السعودية-الفرنسية ترجّح أن الواحة كانت جزءاً من الكيان الإقليمي المعروف باسم مدين في أواخر الألف الثاني ق.م.",
+        "event": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.0208,
+          28.4783
+        ]
+      }
+    }
+  ]
+}

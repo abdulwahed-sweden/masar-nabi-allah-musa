@@ -1,0 +1,297 @@
+{
+  "type": "FeatureCollection",
+  "name": "الحدث الخامس: أرض التيه - أربعون سنة",
+  "metadata": {
+    "author": "Abdulwahed",
+    "version": "4.0",
+    "description": "التيه يُرسم كنطاق حركة لا كخط، والنطاق يقع كله خارج الأرض المباركة: الشراة ووادي عربة ومدين وشمال غرب الحجاز حتى خيبر.",
+    "tier_legend": {
+      "attested": "موقع أثري مثبت بالتنقيب أو النقوش",
+      "inferred": "ممر طبيعي أو محطة مياه يرجّحها المنطق التضاريسي",
+      "road": "طريق قديم موثّق الاستعمال",
+      "toponym": "اسم مكان يحفظ ذكرى نبي الله موسى أو هارون - شاهد على استمرار التسمية لا على الحدث",
+      "hypothesis": "فرضية الباحث"
+    },
+    "naming_convention": "الاسم الحديث ثم القديم بين قوسين",
+    "coordinate_note": "[longitude, latitude] WGS84 - النقاط الساحلية مراجعة ومزاحة إلى اليابسة"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "نطاق التيه (خارج الأرض المباركة)",
+        "tier": "hypothesis",
+        "fill": "#f39c12",
+        "fill-opacity": 0.2,
+        "stroke": "#e67e22",
+        "stroke-width": 2,
+        "note": "حدود تمثيلية تقريبية. الحد الشمالي يلامس جنوب البحر الميت، والحد الجنوبي يبلغ خيبر."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              34.9,
+              30.6
+            ],
+            [
+              35.3,
+              31.05
+            ],
+            [
+              36.3,
+              30.9
+            ],
+            [
+              37.3,
+              28.6
+            ],
+            [
+              39.8,
+              26.1
+            ],
+            [
+              38.2,
+              25.2
+            ],
+            [
+              36.0,
+              27.2
+            ],
+            [
+              34.85,
+              28.2
+            ],
+            [
+              34.75,
+              29.6
+            ],
+            [
+              34.9,
+              30.6
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "امتداد محتمل نحو خيبر",
+        "stroke": "#5dade2",
+        "stroke-width": 3,
+        "stroke-opacity": 0.9,
+        "status": "فرضية",
+        "distance_note": "البدع ← خيبر نحو 520 كم"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.0208,
+            28.4783
+          ],
+          [
+            36.57,
+            28.38
+          ],
+          [
+            38.55,
+            27.6333
+          ],
+          [
+            39.2917,
+            25.6944
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "جبل هارون (جبل هور (بحسب التقليد))",
+        "modern_name": "جبل هارون",
+        "ancient_name": "جبل هور (بحسب التقليد)",
+        "tier": "toponym",
+        "marker-color": "#e67e22",
+        "marker-size": "large",
+        "marker-symbol": "monument",
+        "evidence": "قمة نحو 1350م جنوب غرب البتراء، عليها مقام يُنسب إلى النبي هارون، وتحته دير بيزنطي منقّب",
+        "caveat": "الطبقات المنقّبة بيزنطية وإسلامية؛ التقليد راسخ وقديم لكنه ليس تأريخاً أثرياً",
+        "event": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.4047,
+          30.3175
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "عين نبي الله موسى - وادي نبي الله موسى",
+        "modern_name": "عين نبي الله موسى - وادي نبي الله موسى",
+        "ancient_name": "—",
+        "tier": "toponym",
+        "marker-color": "#e67e22",
+        "marker-size": "large",
+        "marker-symbol": "water",
+        "evidence": "نبع دائم غزير ووادٍ يحملان اسم نبي الله موسى إلى اليوم، عند مدخل البتراء",
+        "caveat": "التسمية موثقة بيزنطياً وإسلامياً؛ لا إسناد أثري إلى العصر البرونزي",
+        "event": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.5058,
+          30.3316
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "البدع / مغائر شعيب (مَدْيَن)",
+        "modern_name": "البدع / مغائر شعيب",
+        "ancient_name": "مَدْيَن",
+        "tier": "attested",
+        "marker-color": "#c0392b",
+        "marker-size": "large",
+        "marker-symbol": "embassy",
+        "evidence": "واحة وآبار ومقابر منحوتة بطراز نبطي. البعثة السعودية-الفرنسية ترجّح أن الواحة كانت جزءاً من الكيان الإقليمي المعروف باسم مدين في أواخر الألف الثاني ق.م.",
+        "event": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.0208,
+          28.4783
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "قُرَيّة",
+        "modern_name": "قُرَيّة",
+        "ancient_name": "قُرَيّة",
+        "tier": "attested",
+        "marker-color": "#9b59b6",
+        "marker-size": "large",
+        "evidence": "واحة مسوّرة ومركز إنتاج الفخار المصبوغ الذي وُجد في تمنع وتل الخليفة",
+        "caveat": "الإحداثية تقريبية",
+        "event": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.05,
+          28.82
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "تبوك",
+        "modern_name": "تبوك",
+        "ancient_name": "—",
+        "tier": "inferred",
+        "marker-color": "#7f8c8d",
+        "marker-size": "large",
+        "event": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.57,
+          28.38
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "تيماء",
+        "modern_name": "تيماء",
+        "ancient_name": "تيماء",
+        "tier": "attested",
+        "marker-color": "#9b59b6",
+        "marker-size": "large",
+        "evidence": "أقدم واحة مسوّرة كبرى في شمال غرب الجزيرة",
+        "event": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.55,
+          27.6333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "العلا (ددان)",
+        "modern_name": "العلا",
+        "ancient_name": "ددان",
+        "tier": "attested",
+        "marker-color": "#9b59b6",
+        "marker-size": "large",
+        "evidence": "عاصمة مملكتي ددان ولحيان",
+        "event": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.9333,
+          26.6333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "مدائن صالح (الحِجر)",
+        "modern_name": "مدائن صالح",
+        "ancient_name": "الحِجر",
+        "tier": "attested",
+        "marker-color": "#9b59b6",
+        "marker-size": "large",
+        "evidence": "المركز النبطي الجنوبي",
+        "event": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.95,
+          26.79
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "خيبر (واحة خيبر المسوّرة)",
+        "modern_name": "خيبر",
+        "ancient_name": "واحة خيبر المسوّرة",
+        "tier": "hypothesis",
+        "marker-color": "#8e44ad",
+        "marker-size": "large",
+        "evidence": "سور يحيط الواحة بالكامل طوله نحو 14.5 كم بـ180 برجاً، مؤرّخ كربونياً 2250-1950 ق.م؛ وداخلها موقع النطاة: بلدة محصّنة 2.6 هكتار من نحو 2400-2000 ق.م استمرت حتى 1500 وربما 1300 ق.م.",
+        "caveat": "لا مادة إسرائيلية في طبقاتها",
+        "event": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.2917,
+          25.6944
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>مسار نبي الله موسى — أطلس بحثي</title>
+<link rel="stylesheet" href="vendor/leaflet.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Noto+Naskh+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* الأرض */
+  --ink:#0A0D12; --panel:rgba(10,13,18,.955); --panel-solid:#0E1219; --raise:#171D27;
+  --line:rgba(255,255,255,.14); --line-2:rgba(255,255,255,.075);
+  /* الحبر */
+  --tx:#F6F4F0; --tx-2:#C3CAD5; --tx-3:#848D9A;
+  --accent:#4FA3D9; --now:#4FA3D9; --gold:#E0B84B;
+  /* المقاسات */
+  --col:460px; --hdr:66px;
+  /* الخطوط: عرض بالأميري، ونصّ بالنسخ لسهولة القراءة، وواجهة بخط هندسي */
+  --display:'Amiri',Georgia,serif;
+  --body:'Noto Naskh Arabic','Amiri',Georgia,serif;
+  --ui:'IBM Plex Sans Arabic',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);color:var(--tx);font-family:var(--ui);
+  font-size:16px;line-height:1.75;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+h1,h2,h3{margin:0;font-weight:400;line-height:1.25}
+p{margin:0}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--now);outline-offset:3px;border-radius:2px}
+
+/* ─────────── الخريطة ─────────── */
+#map{position:fixed;inset:0;z-index:0;background:var(--ink);direction:ltr}
+.leaflet-basemap-pane{filter:contrast(1.32) saturate(.85) brightness(.94)}
+.leaflet-container{background:var(--ink);font-family:var(--ui)}
+.leaflet-control-zoom{border:1px solid var(--line)!important;box-shadow:none!important;border-radius:3px;overflow:hidden}
+.leaflet-control-zoom a{
+  background:var(--panel-solid);color:var(--tx-2);border-bottom:1px solid var(--line)!important;
+  width:34px;height:34px;line-height:33px;font-size:18px}
+.leaflet-control-zoom a:hover{background:var(--raise);color:var(--tx)}
+.leaflet-control-attribution{
+  background:rgba(10,13,18,.85)!important;color:var(--tx-3)!important;
+  font-size:10.5px!important;padding:3px 9px!important;backdrop-filter:blur(8px)}
+.leaflet-control-attribution a{color:var(--tx-2)!important}
+.leaflet-control-scale-line{
+  background:rgba(10,13,18,.85);border:1px solid var(--line);border-top:none;
+  color:var(--tx-2);font-size:10.5px;letter-spacing:.05em;padding:2px 7px;
+  font-variant-numeric:tabular-nums}
+
+/* ─────────── شريط التقدّم ─────────── */
+.progress{position:fixed;top:0;right:0;left:0;height:2px;z-index:60;background:transparent;pointer-events:none}
+.progress span{
+  display:block;height:100%;background:var(--now);transform-origin:right;transform:scaleX(0);
+  transition:transform .1s linear,background .5s ease}
+
+/* ─────────── الترويسة ─────────── */
+header{
+  position:fixed;top:0;right:0;left:0;height:var(--hdr);z-index:40;
+  display:flex;align-items:center;gap:20px;padding:0 24px;
+  background:linear-gradient(to bottom,rgba(10,13,18,.97) 15%,rgba(10,13,18,.75) 72%,transparent);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.brand{flex:0 0 auto;font-family:var(--display);font-size:22px;font-weight:700;
+  letter-spacing:.01em;white-space:nowrap}
+
+.rail{display:flex;gap:3px;flex:1 1 auto;justify-content:center;min-width:0;overflow:hidden}
+.rail button{
+  position:relative;display:flex;align-items:center;gap:7px;
+  padding:7px 11px;border-radius:3px;font-size:12px;font-weight:500;
+  color:var(--tx-3);white-space:nowrap;transition:color .22s,background .22s}
+.rail button:hover{color:var(--tx-2);background:rgba(255,255,255,.04)}
+.rail button[aria-current="true"]{color:var(--tx);background:rgba(255,255,255,.07)}
+.rail .num{
+  font-variant-numeric:tabular-nums;font-size:10.5px;font-weight:600;
+  width:18px;height:18px;flex:0 0 auto;display:grid;place-items:center;border-radius:50%;
+  border:1px solid var(--line);color:var(--tx-3);transition:.22s}
+.rail button[aria-current="true"] .num{
+  background:var(--c);border-color:var(--c);color:#0A0D12}
+
+.tools{display:flex;gap:5px;flex:0 0 auto}
+.tools button{
+  padding:6px 11px;font-size:11.5px;font-weight:500;color:var(--tx-3);
+  border:1px solid var(--line-2);border-radius:3px;transition:.18s}
+.tools button:hover{color:var(--tx-2);border-color:var(--line);background:rgba(255,255,255,.04)}
+.tools button[aria-pressed="true"]{color:var(--tx);border-color:var(--line);background:var(--raise)}
+
+/* ─────────── عمود السرد ─────────── */
+.wrap{position:relative;z-index:20;display:flex;pointer-events:none}
+.narrative{width:var(--col);max-width:100%;flex:0 0 auto;padding:0 26px;pointer-events:auto}
+.step{min-height:100vh;display:flex;align-items:center;padding:calc(var(--hdr) + 26px) 0 26px}
+.card{
+  width:100%;position:relative;background:var(--panel);
+  border:1px solid var(--line);border-radius:4px;padding:30px 30px 26px;
+  backdrop-filter:blur(18px) saturate(1.15);-webkit-backdrop-filter:blur(18px) saturate(1.15);
+  box-shadow:0 28px 64px -22px rgba(0,0,0,.9),0 2px 8px -2px rgba(0,0,0,.5);
+  opacity:.3;transform:translateY(16px);
+  transition:opacity .55s ease,transform .55s cubic-bezier(.2,.7,.3,1)}
+.card::before{
+  content:"";position:absolute;inset:0 0 auto;height:1px;border-radius:4px 4px 0 0;
+  background:linear-gradient(to left,transparent,rgba(255,255,255,.16),transparent)}
+.step.on .card{opacity:1;transform:none}
+.card .bar{height:3px;width:40px;background:var(--c,var(--accent));border-radius:2px;margin-bottom:18px}
+.kicker{
+  font-family:var(--ui);font-size:11px;font-weight:600;letter-spacing:.19em;
+  color:var(--c,var(--accent));margin-bottom:11px}
+.card h2{
+  font-family:var(--display);font-size:30px;font-weight:700;line-height:1.32;
+  margin-bottom:12px;text-wrap:pretty}
+.dek{
+  font-family:var(--body);font-size:15.5px;line-height:1.95;color:var(--tx-2);
+  margin-bottom:18px;text-wrap:pretty}
+.note{
+  font-family:var(--body);font-size:14.5px;line-height:2.05;color:var(--tx-2);
+  border-inline-start:2px solid var(--line);padding-inline-start:15px;margin-top:13px;
+  text-wrap:pretty}
+.note.fix{border-inline-start-color:var(--gold);color:#EBDCAF}
+.note.fix::before{content:"تصحيح · ";font-family:var(--ui);font-weight:600;color:var(--gold)}
+
+.meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px;padding-top:17px;border-top:1px solid var(--line-2)}
+.chip{
+  font-family:var(--ui);font-size:11.5px;font-weight:400;color:var(--tx-2);
+  border:1px solid var(--line-2);border-radius:3px;padding:4px 10px;
+  font-variant-numeric:tabular-nums;background:rgba(255,255,255,.025)}
+.chip b{color:var(--tx);font-weight:600}
+
+/* البطاقة الافتتاحية */
+.hero .card{background:var(--panel-solid);padding:38px 32px 32px}
+.hero h1{
+  font-family:var(--display);font-size:clamp(34px,4.2vw,48px);font-weight:700;
+  line-height:1.16;margin-bottom:10px;text-wrap:balance}
+.hero .sub{
+  font-family:var(--body);font-size:15px;color:var(--tx-2);line-height:1.9;margin-bottom:24px}
+.hero .lede{
+  font-family:var(--body);font-size:15.5px;line-height:2.05;color:var(--tx-2);margin-bottom:24px}
+.hero .by{
+  font-family:var(--ui);font-size:11px;color:var(--tx-3);letter-spacing:.11em;
+  padding-top:17px;border-top:1px solid var(--line-2)}
+.scroll-hint{
+  display:flex;align-items:center;gap:10px;font-size:12px;color:var(--tx-3);margin-top:22px}
+.scroll-hint i{
+  width:16px;height:25px;border:1.5px solid var(--tx-3);border-radius:9px;position:relative;flex:0 0 auto}
+.scroll-hint i::after{
+  content:"";position:absolute;top:5px;left:50%;margin-left:-1.5px;width:3px;height:6px;
+  border-radius:2px;background:var(--tx-3);animation:wheel 1.8s ease-in-out infinite}
+@keyframes wheel{0%,100%{transform:translateY(0);opacity:1}55%{transform:translateY(8px);opacity:.2}}
+
+/* المعجم الختامي */
+.gaz{display:flex;flex-direction:column;gap:22px}
+.gaz-group h3{
+  font-family:var(--ui);font-size:11px;font-weight:600;letter-spacing:.15em;color:var(--tx-3);
+  margin-bottom:11px;display:flex;align-items:center;gap:9px;font-variant-numeric:tabular-nums}
+.gaz-list{display:flex;flex-wrap:wrap;gap:5px}
+.gaz-list button{
+  font-family:var(--body);font-size:13px;color:var(--tx-2);
+  border:1px solid var(--line-2);border-radius:3px;padding:5px 11px;transition:.16s}
+.gaz-list button:hover{color:var(--tx);border-color:var(--line);background:var(--raise)}
+
+/* ─────────── لوحة الموقع ─────────── */
+.sheet{
+  position:fixed;z-index:45;bottom:26px;left:22px;width:380px;max-width:calc(100vw - 44px);
+  background:var(--panel-solid);border:1px solid var(--line);border-radius:4px;
+  padding:24px 26px;box-shadow:0 28px 72px -20px rgba(0,0,0,.92);
+  opacity:0;transform:translateY(12px) scale(.99);pointer-events:none;
+  transition:opacity .28s,transform .28s}
+.sheet.on{opacity:1;transform:none;pointer-events:auto}
+.sheet .x{
+  position:absolute;top:13px;left:13px;color:var(--tx-3);font-size:16px;
+  width:26px;height:26px;line-height:1;border-radius:3px;display:grid;place-items:center}
+.sheet .x:hover{color:var(--tx);background:var(--raise)}
+.sheet .tier{
+  display:inline-flex;align-items:center;gap:8px;font-family:var(--ui);font-size:11px;
+  font-weight:600;letter-spacing:.07em;padding:4px 10px;border-radius:3px;margin-bottom:13px}
+.sheet h3{
+  font-family:var(--display);font-size:25px;font-weight:700;line-height:1.3;
+  margin-bottom:4px;padding-inline-end:30px}
+.sheet .anc{font-family:var(--body);font-size:13.5px;color:var(--tx-2);margin-bottom:15px}
+.sheet .ev{font-family:var(--body);font-size:15px;line-height:2.02;color:var(--tx-2);text-wrap:pretty}
+.sheet .cav{
+  font-family:var(--body);font-size:14px;line-height:1.98;color:#EBDCAF;margin-top:13px;
+  border-inline-start:2px solid var(--gold);padding-inline-start:13px}
+.sheet .cav::before{content:"تحفّظ · ";font-family:var(--ui);font-weight:600;color:var(--gold)}
+.sheet .xy{
+  font-family:var(--ui);font-size:11px;color:var(--tx-3);margin-top:16px;padding-top:13px;
+  border-top:1px solid var(--line-2);direction:ltr;text-align:right;
+  font-variant-numeric:tabular-nums;letter-spacing:.04em}
+
+/* ─────────── المفتاح ─────────── */
+.legend{
+  position:fixed;z-index:35;bottom:26px;left:22px;
+  background:var(--panel);border:1px solid var(--line);border-radius:4px;
+  padding:15px 17px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  transition:opacity .3s}
+body.sheet-open .legend{opacity:0;pointer-events:none}
+.legend h4{
+  font-family:var(--ui);font-size:10px;font-weight:600;letter-spacing:.16em;
+  color:var(--tx-3);margin:0 0 11px}
+.legend div{
+  display:flex;align-items:center;gap:10px;font-family:var(--body);
+  font-size:12.5px;color:var(--tx-2);margin-top:7px}
+.legend .sw{width:16px;display:flex;justify-content:center;flex:0 0 auto}
+
+/* ─────────── العلامات ─────────── */
+.mk{position:relative;display:block}
+.mk .dot{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:14px;height:14px;border-radius:50%;background:var(--c);
+  box-shadow:0 0 0 2px rgba(10,13,18,.92),0 0 14px -1px var(--c);
+  transition:width .16s,height .16s}
+.mk.t-inferred .dot{
+  width:12px;height:12px;background:rgba(10,13,18,.92);border:2.5px solid var(--c);
+  box-shadow:0 0 0 2px rgba(10,13,18,.92)}
+.mk.t-toponym .dot{border-radius:2px;transform:translate(-50%,-50%) rotate(45deg);width:12px;height:12px}
+.mk.t-hypothesis .dot{
+  width:14px;height:14px;background:transparent;border:2px dashed var(--c);
+  box-shadow:0 0 0 2px rgba(10,13,18,.6)}
+.mk .n{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:var(--ui);font-size:9.5px;font-weight:700;color:#0A0D12;line-height:1;
+  font-variant-numeric:tabular-nums;pointer-events:none}
+.mk.ref .dot{width:9px;height:9px;opacity:.78}
+.mk .lb{
+  position:absolute;top:50%;transform:translateY(-50%);right:17px;white-space:nowrap;
+  font-family:var(--ui);font-size:12px;font-weight:600;color:#fff;letter-spacing:.005em;
+  text-shadow:0 0 4px #0A0D12,0 0 10px #0A0D12,0 1px 3px rgba(0,0,0,.95);pointer-events:none}
+.mk .lb.alt{right:auto;left:17px}
+.mk.ref .lb{font-weight:400;font-size:11.5px;color:#DCE1E8}
+.mk:hover .dot{width:18px;height:18px}
+.leaflet-marker-icon{background:none;border:none}
+
+/* ─────────── حالة الخطأ ─────────── */
+.boot{position:fixed;inset:0;z-index:90;display:none;place-items:center;background:var(--ink);padding:30px}
+.boot.on{display:grid}
+.boot .in{max-width:580px}
+.boot h2{font-family:var(--display);font-size:29px;font-weight:700;margin-bottom:14px}
+.boot p{font-family:var(--body);color:var(--tx-2);font-size:14.5px;line-height:2;margin-bottom:14px}
+.boot pre{
+  background:#06080B;border:1px solid var(--line);border-radius:4px;padding:15px 17px;
+  direction:ltr;text-align:left;font-size:13px;color:#9FD6A8;overflow-x:auto;margin:0 0 14px}
+.boot code{background:#06080B;border:1px solid var(--line-2);padding:2px 6px;border-radius:3px;font-size:12.5px}
+.boot .err{font-size:12px;color:var(--tx-3);direction:ltr;text-align:left}
+
+@media(max-width:900px){
+  :root{--col:100%}
+  .rail{display:none}
+  .narrative{padding:0 15px}
+  .step{min-height:92vh;align-items:flex-end;padding-bottom:36px}
+  .card{padding:24px 22px 22px}
+  .card h2{font-size:25px}
+  .legend{left:15px;right:auto;bottom:auto;top:calc(var(--hdr) + 12px);padding:11px 13px}
+  .legend div{font-size:11.5px;margin-top:6px}
+  .sheet{left:15px;right:15px;width:auto;bottom:15px;padding:20px 22px}
+  .brand{font-size:19px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .card{transition:none;opacity:1;transform:none}
+  .scroll-hint i::after{animation:none}
+  .progress span{transition:none}
+}
+</style>
+</head>
+<body>
+
+<div id="map"></div>
+<div class="progress"><span id="bar"></span></div>
+
+<header>
+  <div class="brand">مسار نبي الله موسى</div>
+  <nav class="rail" id="rail" aria-label="الأحداث"></nav>
+  <div class="tools" id="tools"></div>
+</header>
+
+<div class="legend" id="legend" hidden>
+  <h4>درجة الإسناد</h4>
+  <div><span class="sw"><span style="width:11px;height:11px;border-radius:50%;background:#D8DDE4;display:block"></span></span>مثبت أثرياً</div>
+  <div><span class="sw"><span style="width:11px;height:11px;border-radius:50%;border:2.5px solid #D8DDE4;display:block"></span></span>مرجّح تضاريسياً</div>
+  <div><span class="sw"><span style="width:9px;height:9px;background:#D8DDE4;display:block;transform:rotate(45deg)"></span></span>اسم يحفظ الذكرى</div>
+  <div><span class="sw"><span style="width:12px;height:12px;border-radius:50%;border:2px dashed #D8DDE4;display:block"></span></span>فرضية الباحث</div>
+</div>
+
+<div class="wrap"><div class="narrative" id="narrative"></div></div>
+
+<div class="sheet" id="sheet" role="dialog" aria-live="polite"></div>
+
+<div class="boot" id="boot"><div class="in">
+  <h2 id="bootTitle">تعذّر تحميل بيانات الأطلس</h2>
+  <div id="bootServe">
+    <p>هذه الصفحة تقرأ بياناتها من ملفات مجاورة، والمتصفح يمنع ذلك عند فتح الملف بنقر مزدوج (بروتوكول <code>file://</code>). شغّل خادماً محلياً من مجلد المشروع:</p>
+    <pre>cd ~/Desktop/Profet-mosa
+python3 -m http.server 8000</pre>
+    <p>ثم افتح <code>http://localhost:8000/</code></p>
+  </div>
+  <p id="bootHint" hidden>حدث خطأ أثناء بناء الصفحة. التفاصيل أدناه وفي وحدة التحكم.</p>
+  <p class="err" id="bootErr"></p>
+</div></div>
+
+<script src="vendor/leaflet.js"></script>
+<script>
+/* ════════════════════════════════════════════════════════════════
+   مسار نبي الله موسى — أطلس بحثي
+   البيانات: data/narrative.json + last/*.geojson
+   المعجم last/99_Gazetteer.geojson هو مرجع الإحداثيات ودرجات الإسناد
+   ════════════════════════════════════════════════════════════════ */
+
+const GAZ='last/99_Gazetteer.geojson', NAR='data/narrative.json', ROADS='last/00_Ancient_Roads.geojson';
+
+const TIER={
+  attested   :{label:'مثبت أثرياً',      color:'#4CC38A'},
+  inferred   :{label:'مرجّح تضاريسياً',  color:'#7C8794'},
+  toponym    :{label:'اسم يحفظ الذكرى',  color:'#E0A458'},
+  hypothesis :{label:'فرضية الباحث',     color:'#B98BE0'}
+};
+
+const key=(lon,lat)=>lon.toFixed(4)+','+lat.toFixed(4);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ─────────── الخريطة ─────────── */
+const map=L.map('map',{
+  zoomControl:false, scrollWheelZoom:false, attributionControl:true,
+  renderer:L.svg({padding:.6}), zoomSnap:.5, minZoom:5, maxZoom:14
+}).setView([30.6,35.6],7);
+
+L.control.zoom({position:'bottomright'}).addTo(map);
+L.control.scale({position:'bottomright',imperial:false,maxWidth:130}).addTo(map);
+
+const basePane=map.createPane('basemap'); basePane.style.zIndex=200;
+const lblPane=map.createPane('labels');    lblPane.style.zIndex=350;
+
+const ESRI='https://server.arcgisonline.com/ArcGIS/rest/services/';
+const BASES={
+  relief:{
+    label:'ظلال التضاريس',
+    layer:()=>L.layerGroup([
+      L.tileLayer(ESRI+'World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}',{pane:'basemap',maxZoom:13}),
+      L.tileLayer(ESRI+'World_Hillshade/MapServer/tile/{z}/{y}/{x}',{pane:'basemap',maxZoom:14,
+        opacity:.9,attribution:'تضاريس: Esri'})
+    ])},
+  topo:{
+    label:'تضاريس وكنتور',
+    layer:()=>L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{
+      pane:'basemap',maxZoom:14,subdomains:'abc',
+      attribution:'&copy; OpenTopoMap &amp; OpenStreetMap'})},
+  sat:{
+    label:'قمر صناعي',
+    layer:()=>L.tileLayer(ESRI+'World_Imagery/MapServer/tile/{z}/{y}/{x}',{
+      pane:'basemap',maxZoom:14,attribution:'صور: Esri'})}
+};
+const LABELS=()=>L.tileLayer(ESRI+'Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}',
+  {pane:'labels',maxZoom:14,opacity:.85});
+
+let baseKey='relief', baseLayer=null, labelLayer=null, showLabels=true, showRoads=true;
+function setBase(k){
+  if(baseLayer) map.removeLayer(baseLayer);
+  baseKey=k; baseLayer=BASES[k].layer().addTo(map);
+  document.querySelectorAll('[data-base]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.base===k));
+}
+function setLabels(on){
+  showLabels=on;
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null}
+  if(on){labelLayer=LABELS().addTo(map)}
+  const b=document.querySelector('[data-tool="labels"]'); if(b)b.setAttribute('aria-pressed',on);
+}
+
+/* طبقات المحتوى */
+const roadPane=map.createPane('roads');   roadPane.style.zIndex=380;
+const linePane=map.createPane('lines');   linePane.style.zIndex=420;
+const zonePane=map.createPane('zones');   zonePane.style.zIndex=400;
+const roadsLayer=L.layerGroup([],{pane:'roads'});
+const eventLayer=L.layerGroup().addTo(map);
+
+/* ─────────── تحميل البيانات ─────────── */
+async function getJSON(u){
+  const r=await fetch(u,{cache:'no-store'});
+  if(!r.ok) throw new Error(u+' → '+r.status+' '+r.statusText);
+  return r.json();
+}
+
+let SITES={}, NARR=null, EVENTS=[];
+
+async function boot(){
+  const [nar,gaz]=await Promise.all([getJSON(NAR),getJSON(GAZ)]);
+  NARR=nar;
+  for(const f of gaz.features){
+    const p=f.properties||{}, g=f.geometry||{};
+    if(!p.id||g.type!=='Point') continue;
+    const [lon,lat]=g.coordinates, sub=p.subtitle||p.ancient_name||'';
+    SITES[key(lon,lat)]={
+      id:p.id, name:p.short_name||p.modern_name||p.name,
+      full:p.name, sub:sub==='—'?'':sub, tier:p.tier||'inferred',
+      evidence:p.evidence||'', caveat:p.caveat||'', lon, lat };
+  }
+  if(!Object.keys(SITES).length) throw new Error('المعجم لا يحتوي مواقع تحمل الحقل id');
+
+  EVENTS=await Promise.all(nar.events.map(async ev=>{
+    const gj=await getJSON(ev.file);
+    const lines=[],polys=[],pts=[];
+    for(const f of gj.features){
+      const g=f.geometry||{},p=f.properties||{};
+      if(g.type==='LineString') lines.push({coords:g.coordinates,props:p});
+      else if(g.type==='Polygon') polys.push({coords:g.coordinates,props:p});
+      else if(g.type==='Point') pts.push({coord:g.coordinates,props:p});
+    }
+    /* محطة على المسار إن وقعت على أحد رؤوس الخط، وإلا فهي موقع مرجعي */
+    const order=new Map();
+    let n=0;
+    for(const ln of lines) for(const c of ln.coords){
+      const k=key(c[0],c[1]); if(!order.has(k)) order.set(k,++n);
+    }
+    const stations=[],refs=[];
+    for(const pt of pts){
+      const k=key(pt.coord[0],pt.coord[1]);
+      const site=SITES[k];
+      if(!site) continue;
+      (order.has(k)?stations:refs).push({...site,seq:order.get(k)||null});
+    }
+    stations.sort((a,b)=>a.seq-b.seq);
+    /* الإطار يُشتق من الشكل الفعلي للحدث - لا صندوق مرسوم يدوياً يتخلّف عن البيانات */
+    const ll=[];
+    for(const l of lines) for(const c of l.coords) ll.push([c[1],c[0]]);
+    for(const pg of polys) for(const c of pg.coords[0]) ll.push([c[1],c[0]]);
+    for(const st of stations.concat(refs)) ll.push([st.lat,st.lon]);
+    const bbox=ll.length ? L.latLngBounds(ll).pad(.08)
+      : L.latLngBounds([[ev.bounds[1],ev.bounds[0]],[ev.bounds[3],ev.bounds[2]]]);
+    return {...ev,lines,polys,stations,refs,bbox};
+  }));
+
+  try{ roadsLayer.clearLayers(); const rg=await getJSON(ROADS);
+    for(const f of rg.features){
+      if(f.geometry.type!=='LineString') continue;
+      L.polyline(f.geometry.coordinates.map(c=>[c[1],c[0]]),{
+        pane:'roads',color:'#E8E2D4',weight:1.1,opacity:.42,dashArray:'1 6',
+        lineCap:'round',interactive:false}).addTo(roadsLayer);
+    }
+    roadsLayer.addTo(map);
+  }catch(e){ /* الطرق القديمة زينة سياقية - تجاهل فشلها */ }
+
+  setBase('relief'); setLabels(true);
+  buildTools(); buildRail(); buildSteps(); observe();
+  document.getElementById('legend').hidden=false;
+
+  /* الأقسام تُبنى بعد الجلب، فالمتصفح تجاوز الوسم مسبقاً - نعيد التوجيه يدوياً */
+  const h=location.hash.replace('#','');
+  if(h && document.getElementById(h)) document.getElementById(h).scrollIntoView({block:'start'});
+}
+
+/* ─────────── الترويسة ─────────── */
+function buildTools(){
+  const t=document.getElementById('tools');
+  t.innerHTML=Object.entries(BASES).map(([k,v])=>
+    `<button data-base="${k}" aria-pressed="${k===baseKey}">${esc(v.label)}</button>`).join('')
+   +`<button data-tool="labels" aria-pressed="true">الأسماء</button>`
+   +`<button data-tool="roads" aria-pressed="true">الطرق القديمة</button>`;
+  t.onclick=e=>{
+    const b=e.target.closest('button'); if(!b)return;
+    if(b.dataset.base) setBase(b.dataset.base);
+    else if(b.dataset.tool==='labels') setLabels(b.getAttribute('aria-pressed')!=='true');
+    else if(b.dataset.tool==='roads'){
+      showRoads=b.getAttribute('aria-pressed')!=='true';
+      b.setAttribute('aria-pressed',showRoads);
+      showRoads?roadsLayer.addTo(map):map.removeLayer(roadsLayer);
+    }
+  };
+}
+function buildRail(){
+  document.getElementById('rail').innerHTML=EVENTS.map(e=>
+    `<button data-go="ev${e.id}" style="--c:${e.color}"><span class="num">${e.id}</span>${esc(e.short||e.title)}</button>`
+  ).join('');
+  document.getElementById('rail').onclick=e=>{
+    const b=e.target.closest('button'); if(!b)return;
+    document.getElementById(b.dataset.go).scrollIntoView({behavior:'smooth',block:'start'});
+  };
+}
+/* ─────────── بناء الخطوات ─────────── */
+function buildSteps(){
+  const n=document.getElementById('narrative');
+  const i=NARR.intro;
+  let html=`<section class="step hero on" id="intro" data-step="intro"><div class="card">
+    <div class="bar"></div>
+    <p class="kicker">${esc(i.kicker)}</p>
+    <h1>${esc(NARR.title)}</h1>
+    <p class="sub">${esc(NARR.subtitle)}</p>
+    <p class="lede">${esc(i.lede)}</p>
+    <div class="meta">
+      <span class="chip"><b>${EVENTS.length}</b> أحداث</span>
+      <span class="chip"><b>${Object.keys(SITES).length}</b> موقعاً</span>
+      <span class="chip">${esc(NARR.datum)}</span>
+    </div>
+    <p class="by">إعداد: ${esc(NARR.author)}</p>
+    <div class="scroll-hint"><i></i>${esc(i.hint)}</div>
+  </div></section>`;
+
+  for(const e of EVENTS){
+    html+=`<section class="step" id="ev${e.id}" data-step="${e.id}" style="--c:${e.color}"><div class="card">
+      <div class="bar"></div>
+      <p class="kicker">${esc(e.kicker)}</p>
+      <h2>${esc(e.title)}</h2>
+      <p class="dek">${esc(e.dek)}</p>
+      ${e.notes.map((t,ix)=>`<p class="note${ix&&/^تصحيح/.test(t)?' fix':''}">${esc(t.replace(/^تصحيح:\s*/,''))}</p>`).join('')}
+      <div class="meta">
+        <span class="chip"><b>${e.stations.length}</b> محطة</span>
+        ${e.refs.length?`<span class="chip"><b>${e.refs.length}</b> موقع مرجعي</span>`:''}
+        ${e.lines.length?`<span class="chip"><b>${routeKm(e)}</b> كم تقريباً</span>`:''}
+      </div>
+    </div></section>`;
+  }
+
+  const o=NARR.outro, byTier={attested:[],inferred:[],toponym:[],hypothesis:[]};
+  Object.values(SITES).forEach(s=>(byTier[s.tier]||byTier.inferred).push(s));
+  html+=`<section class="step" id="gazetteer" data-step="gaz"><div class="card">
+    <div class="bar"></div>
+    <p class="kicker">${esc(o.kicker)}</p>
+    <h2>${esc(o.title)}</h2>
+    <p class="dek">${esc(o.dek)}</p>
+    <div class="gaz">${Object.entries(byTier).filter(([,v])=>v.length).map(([t,v])=>`
+      <div class="gaz-group">
+        <h3><span style="width:9px;height:9px;border-radius:50%;background:${TIER[t].color};display:inline-block"></span>
+        ${esc(TIER[t].label)} · ${v.length}</h3>
+        <div class="gaz-list">${v.sort((a,b)=>b.lat-a.lat)
+          .map(s=>`<button data-site="${esc(s.id)}">${esc(s.name)}</button>`).join('')}</div>
+      </div>`).join('')}</div>
+  </div></section>`;
+
+  n.innerHTML=html;
+  n.addEventListener('click',ev=>{
+    const b=ev.target.closest('[data-site]'); if(!b)return;
+    const s=Object.values(SITES).find(x=>x.id===b.dataset.site);
+    if(!s)return;
+    map.flyTo([s.lat,s.lon],11,{duration:1.1});
+    openSheet(s,'#D8DDE4');
+  });
+}
+
+function routeKm(e){
+  let m=0;
+  for(const ln of e.lines) for(let i=1;i<ln.coords.length;i++)
+    m+=map.distance([ln.coords[i-1][1],ln.coords[i-1][0]],[ln.coords[i][1],ln.coords[i][0]]);
+  return Math.round(m/1000/10)*10;
+}
+
+/* ─────────── الرسم ─────────── */
+let active=null, placed=[];
+function renderEvent(e){
+  eventLayer.clearLayers(); placed=[];
+  if(!e){ map.flyToBounds([[28.2,34.2],[32.7,39.6]],pad(),{duration:1.4}); return }
+
+  for(const pg of e.polys){
+    L.polygon(pg.coords[0].map(c=>[c[1],c[0]]),{
+      pane:'zones',color:e.color,weight:2,opacity:.92,dashArray:'7 5',
+      fillColor:e.color,fillOpacity:.15,interactive:false}).addTo(eventLayer);
+  }
+
+  const paths=[];
+  for(const ln of e.lines){
+    const latlngs=ln.coords.map(c=>[c[1],c[0]]);
+    const dashed=/امتداد|محتمل/.test(ln.props.name||'');
+    /* لا حاشية تحت الخط المتقطع - وإلا ظهرت الفجوات خطاً رمادياً متصلاً */
+    if(!dashed) L.polyline(latlngs,{pane:'lines',color:'#0B0E13',weight:7,opacity:.5,
+      lineCap:'round',lineJoin:'round',interactive:false}).addTo(eventLayer);
+    const p=L.polyline(latlngs,{pane:'lines',color:e.color,weight:3,opacity:.95,
+      lineCap:'round',lineJoin:'round',dashArray:dashed?'7 7':null,interactive:false}).addTo(eventLayer);
+    if(!dashed) paths.push(p);
+  }
+
+  for(const s of e.refs)     addMarker(s,e,true);
+  for(const s of e.stations) addMarker(s,e,false);
+
+  map.flyToBounds(e.bbox,Object.assign({duration:1.5,easeLinearity:.22},pad()));
+
+  requestAnimationFrame(()=>{paths.forEach(drawOn);declutter()});
+}
+
+/* ─────────── إخفاء الأسماء المتراكبة ───────────
+   الخريطة الحقيقية تُقرّب المواقع بعضها من بعض، فتتراكم الأسماء.
+   نرتّبها بالأولوية - محطات المسار أولاً - ونُخفي ما لا يجد مكاناً. */
+function declutter(){
+  if(!placed.length) return;
+  const boxes=[], PAD=3;
+  const rank=placed.slice().sort((a,b)=>
+    (a.isRef?1:0)-(b.isRef?1:0) || (a.seq||99)-(b.seq||99));
+  const W=map.getSize().x;
+  const free=b=>b.x1>4 && b.x2<W-4 &&
+    !boxes.some(o=>!(b.x2+PAD<o.x1||b.x1-PAD>o.x2||b.y2+PAD<o.y1||b.y1-PAD>o.y2));
+  for(const it of rank){
+    const el=it.marker.getElement && it.marker.getElement();
+    const lb=el&&el.querySelector('.lb');
+    if(!lb) continue;
+    const pt=map.latLngToContainerPoint(it.marker.getLatLng());
+    const w=it.name.length*6.9+8, h=16, y1=pt.y-h/2, y2=pt.y+h/2;
+    /* جرّب يسار العلامة ثم يمينها - الأسماء الطويلة تحتاج الجهتين */
+    const cands=[{x1:pt.x-17-w,x2:pt.x-17,alt:false},{x1:pt.x+17,x2:pt.x+17+w,alt:true}];
+    let put=null;
+    for(const c of cands){
+      const b={x1:c.x1,y1,x2:c.x2,y2};
+      if(free(b)){ put=b; lb.classList.toggle('alt',c.alt); break }
+    }
+    lb.style.display=put?'':'none';
+    if(put) boxes.push(put);
+  }
+}
+map.on('zoomend moveend',declutter);
+
+function drawOn(p){
+  const el=p.getElement && p.getElement(); if(!el||!el.getTotalLength) return;
+  const L0=el.getTotalLength(); if(!L0) return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  el.style.transition='none';
+  el.style.strokeDasharray=L0+' '+L0;
+  el.style.strokeDashoffset=L0;
+  el.getBoundingClientRect();
+  el.style.transition='stroke-dashoffset 1.5s cubic-bezier(.35,.1,.25,1)';
+  el.style.strokeDashoffset='0';
+  /* الحركة زينة: لو لم تُنفَّذ (تبويب خامل، متصفح بلا إطارات) يبقى الخط ظاهراً */
+  setTimeout(()=>{el.style.transition='';el.style.strokeDasharray='';el.style.strokeDashoffset=''},1700);
+}
+
+function addMarker(s,e,isRef){
+  const cls='mk t-'+s.tier+(isRef?' ref':'');
+  const num=(!isRef&&s.seq)?`<span class="n">${s.seq}</span>`:'';
+  const m=L.marker([s.lat,s.lon],{
+    icon:L.divIcon({className:'',iconSize:[0,0],
+      html:`<span class="${cls}" style="--c:${isRef?'#C6CDD6':e.color}">
+              <span class="dot"></span>${num}<span class="lb">${esc(s.name)}</span></span>`}),
+    keyboard:false, riseOnHover:true, title:s.full
+  }).addTo(eventLayer);
+  m.on('click',()=>openSheet(s,e.color));
+  placed.push({marker:m,name:s.name,isRef,seq:s.seq});
+}
+
+function pad(){
+  const wide=window.innerWidth>900;
+  const col=wide?Math.min(window.innerWidth*.42,470):0;
+  return wide
+    ? {paddingTopLeft:[60,90],paddingBottomRight:[col,60]}
+    : {paddingTopLeft:[26,90],paddingBottomRight:[26,window.innerHeight*.5]};
+}
+
+/* ─────────── لوحة الموقع ─────────── */
+const sheet=document.getElementById('sheet');
+function openSheet(s,color){
+  const t=TIER[s.tier]||TIER.inferred;
+  sheet.innerHTML=`
+    <button class="x" aria-label="إغلاق">✕</button>
+    <span class="tier" style="background:${t.color}1f;color:${t.color}">
+      <span style="width:7px;height:7px;border-radius:50%;background:${t.color};display:inline-block"></span>
+      ${esc(t.label)}</span>
+    <h3>${esc(s.name)}</h3>
+    ${s.sub?`<p class="anc" style="color:${color}">${esc(s.sub)}</p>`:''}
+    ${s.evidence?`<p class="ev">${esc(s.evidence)}</p>`:''}
+    ${s.caveat?`<p class="cav">${esc(s.caveat)}</p>`:''}
+    <p class="xy">${s.lat.toFixed(4)}°N · ${s.lon.toFixed(4)}°E</p>`;
+  sheet.classList.add('on'); document.body.classList.add('sheet-open');
+  sheet.querySelector('.x').onclick=closeSheet;
+}
+function closeSheet(){sheet.classList.remove('on');document.body.classList.remove('sheet-open')}
+map.on('click',closeSheet);
+addEventListener('keydown',e=>{if(e.key==='Escape')closeSheet()});
+
+/* ─────────── التمرير ─────────── */
+function observe(){
+  const steps=[...document.querySelectorAll('.step')];
+  const io=new IntersectionObserver(entries=>{
+    let best=null;
+    for(const en of entries) if(en.isIntersecting)
+      if(!best||en.intersectionRatio>best.intersectionRatio) best=en;
+    if(!best) return;
+    const el=best.target, id=el.dataset.step;
+    steps.forEach(s=>s.classList.toggle('on',s===el));
+    if(id===active) return;
+    active=id;
+    const ev=EVENTS.find(x=>String(x.id)===id);
+    document.documentElement.style.setProperty('--now',ev?ev.color:'#4FA3D9');
+    renderEvent(ev||null);
+    closeSheet();
+    document.querySelectorAll('#rail button').forEach(b=>
+      b.setAttribute('aria-current',b.dataset.go==='ev'+id));
+  },{rootMargin:'-42% 0px -42% 0px',threshold:[0,.25,.5,.75,1]});
+  steps.forEach(s=>io.observe(s));
+}
+
+const bar=document.getElementById('bar');
+addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-innerHeight;
+  bar.style.transform='scaleX('+(h>0?Math.min(1,scrollY/h):0)+')';
+},{passive:true});
+
+addEventListener('resize',()=>{
+  const e=EVENTS.find(x=>String(x.id)===active);
+  if(e) map.flyToBounds(e.bbox,Object.assign({duration:.6},pad()));
+});
+
+boot().catch(err=>{
+  /* فشل الجلب شيء، وخطأ في الشيفرة شيء آخر - لا تعرض إرشاد الخادم في غير موضعه */
+  const isFetch = err instanceof TypeError && /fetch|network|load/i.test(err.message)
+               || /→ \d{3}/.test(String(err.message));
+  document.getElementById('bootServe').hidden=!isFetch;
+  document.getElementById('bootHint').hidden=isFetch;
+  document.getElementById('bootTitle').textContent=
+    isFetch?'تعذّر تحميل بيانات الأطلس':'تعذّر تشغيل الأطلس';
+  document.getElementById('boot').classList.add('on');
+  document.getElementById('bootErr').textContent=String(err);
+  console.error(err);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,416 @@
+{
+  "type": "FeatureCollection",
+  "name": "الحدث السادس: قيادة يوشع ودخول بيت المقدس",
+  "metadata": {
+    "author": "Abdulwahed",
+    "version": "4.0",
+    "description": "الانطلاق من نطاق آبار نبي الله موسى وجبل هارون شمالاً على طريق الملوك حتى مشارف نيبو، ثم العبور غرباً عند مخاضة الأردن إلى أريحا، ثم الصعود إلى بيت المقدس والتمدد.",
+    "tier_legend": {
+      "attested": "موقع أثري مثبت بالتنقيب أو النقوش",
+      "inferred": "ممر طبيعي أو محطة مياه يرجّحها المنطق التضاريسي",
+      "road": "طريق قديم موثّق الاستعمال",
+      "toponym": "اسم مكان يحفظ ذكرى نبي الله موسى أو هارون - شاهد على استمرار التسمية لا على الحدث",
+      "hypothesis": "فرضية الباحث"
+    },
+    "naming_convention": "الاسم الحديث ثم القديم بين قوسين",
+    "coordinate_note": "[longitude, latitude] WGS84 - النقاط الساحلية مراجعة ومزاحة إلى اليابسة"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "6أ: الصعود شمالاً على طريق الملوك",
+        "stroke": "#8e44ad",
+        "stroke-width": 5,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.4047,
+            30.3175
+          ],
+          [
+            35.5058,
+            30.3316
+          ],
+          [
+            35.56,
+            30.53
+          ],
+          [
+            35.6167,
+            30.7333
+          ],
+          [
+            35.701,
+            31.18
+          ],
+          [
+            35.783,
+            31.5
+          ],
+          [
+            35.795,
+            31.716
+          ],
+          [
+            35.7256,
+            31.7683
+          ],
+          [
+            35.672,
+            31.84
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "6ب: العبور غرباً ودخول بيت المقدس",
+        "stroke": "#6c3483",
+        "stroke-width": 5,
+        "stroke-opacity": 0.9,
+        "note": "العبور عند مخاضة الدامية أو مقابل أريحا، ثم الصعود عبر عاي إلى القدس"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.672,
+            31.84
+          ],
+          [
+            35.546,
+            32.103
+          ],
+          [
+            35.4436,
+            31.8711
+          ],
+          [
+            35.26,
+            31.917
+          ],
+          [
+            35.2467,
+            31.7784
+          ],
+          [
+            35.184,
+            31.846
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "جبل هارون (جبل هور (بحسب التقليد))",
+        "modern_name": "جبل هارون",
+        "ancient_name": "جبل هور (بحسب التقليد)",
+        "tier": "toponym",
+        "marker-color": "#e67e22",
+        "marker-size": "large",
+        "marker-symbol": "monument",
+        "evidence": "قمة نحو 1350م جنوب غرب البتراء، عليها مقام يُنسب إلى النبي هارون، وتحته دير بيزنطي منقّب",
+        "caveat": "الطبقات المنقّبة بيزنطية وإسلامية؛ التقليد راسخ وقديم لكنه ليس تأريخاً أثرياً",
+        "event": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.4047,
+          30.3175
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "عين نبي الله موسى - وادي نبي الله موسى",
+        "modern_name": "عين نبي الله موسى - وادي نبي الله موسى",
+        "ancient_name": "—",
+        "tier": "toponym",
+        "marker-color": "#e67e22",
+        "marker-size": "large",
+        "marker-symbol": "water",
+        "evidence": "نبع دائم غزير ووادٍ يحملان اسم نبي الله موسى إلى اليوم، عند مدخل البتراء",
+        "caveat": "التسمية موثقة بيزنطياً وإسلامياً؛ لا إسناد أثري إلى العصر البرونزي",
+        "event": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.5058,
+          30.3316
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "الشوبك",
+        "modern_name": "الشوبك",
+        "ancient_name": "—",
+        "tier": "inferred",
+        "marker-color": "#16a085",
+        "marker-size": "large",
+        "evidence": "محطة على طريق الملوك بين بصيرة والبتراء",
+        "event": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.56,
+          30.53
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "بصيرة (الطفيلة) (بُصرة - عاصمة أدوم)",
+        "modern_name": "بصيرة (الطفيلة)",
+        "ancient_name": "بُصرة - عاصمة أدوم",
+        "tier": "attested",
+        "marker-color": "#16a085",
+        "marker-size": "large",
+        "evidence": "عاصمة أدوم في العصر الحديدي؛ معبد وقصر منقّبان",
+        "event": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.6167,
+          30.7333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "الكرك (قير موآب / قير حارسة)",
+        "modern_name": "الكرك",
+        "ancient_name": "قير موآب / قير حارسة",
+        "tier": "attested",
+        "marker-color": "#16a085",
+        "marker-size": "large",
+        "evidence": "أول مركز مرتفع على الضفة الشرقية، على طريق الملوك",
+        "event": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.701,
+          31.18
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ذيبان (ديبون - عاصمة موآب)",
+        "modern_name": "ذيبان",
+        "ancient_name": "ديبون - عاصمة موآب",
+        "tier": "attested",
+        "marker-color": "#16a085",
+        "marker-size": "large",
+        "evidence": "موقع مسلّة ميشع الموآبية",
+        "event": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.783,
+          31.5
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "مادبا (ميدبا)",
+        "modern_name": "مادبا",
+        "ancient_name": "ميدبا",
+        "tier": "attested",
+        "marker-color": "#af7ac5",
+        "marker-size": "large",
+        "evidence": "مدينة موآبية ثم بيزنطية",
+        "event": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.795,
+          31.716
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "جبل نيبو (نيبو)",
+        "modern_name": "جبل نيبو",
+        "ancient_name": "نيبو",
+        "tier": "attested",
+        "marker-color": "#8e44ad",
+        "marker-size": "large",
+        "evidence": "يشرف على الغور وأريحا",
+        "event": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.7256,
+          31.7683
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "عيون نبي الله موسى",
+        "modern_name": "عيون نبي الله موسى",
+        "ancient_name": "—",
+        "tier": "toponym",
+        "marker-color": "#e67e22",
+        "marker-size": "large",
+        "marker-symbol": "water",
+        "evidence": "ينابيع تحمل اسم نبي الله موسى أسفل نيبو",
+        "event": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.7414,
+          31.7797
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "تل الحمّام (أبيل شطّيم (مرجّح))",
+        "modern_name": "تل الحمّام",
+        "ancient_name": "أبيل شطّيم (مرجّح)",
+        "tier": "inferred",
+        "marker-color": "#8e44ad",
+        "marker-size": "large",
+        "evidence": "معسكر ما قبل العبور على الضفة الشرقية",
+        "event": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.672,
+          31.84
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "تل الدامية (أدم)",
+        "modern_name": "تل الدامية",
+        "ancient_name": "أدم",
+        "tier": "attested",
+        "marker-color": "#3498db",
+        "marker-size": "large",
+        "evidence": "انسداد موثق لمجرى نهر الأردن بانهيار الضفاف الطينية: 1267م نحو 16 ساعة، و1906، و1927 نحو 21 ساعة ونصف",
+        "event": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.546,
+          32.103
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "أريحا / تل السلطان (يريحو)",
+        "modern_name": "أريحا / تل السلطان",
+        "ancient_name": "يريحو",
+        "tier": "attested",
+        "marker-color": "#27ae60",
+        "marker-size": "large",
+        "evidence": "أقدم مدينة مسوّرة معروفة؛ نبع عين السلطان الدائم",
+        "event": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.4436,
+          31.8711
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "خربة التل / دير دبوان (عاي)",
+        "modern_name": "خربة التل / دير دبوان",
+        "ancient_name": "عاي",
+        "tier": "attested",
+        "marker-color": "#7d3c98",
+        "marker-size": "large",
+        "evidence": "موقع مرتفع بين أريحا والقدس على خط التمدد",
+        "event": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.26,
+          31.917
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "القدس - جبل الطور (جبل الزيتون) (يبوس / أورشليم)",
+        "modern_name": "القدس - جبل الطور (جبل الزيتون)",
+        "ancient_name": "يبوس / أورشليم",
+        "tier": "hypothesis",
+        "marker-color": "#229954",
+        "marker-size": "large",
+        "marker-symbol": "park",
+        "evidence": "التسمية المحلية جبل الطور قديمة وموثقة",
+        "caveat": "الطور آرامية بمعنى الجبل، وتُطلق كذلك على تابور وعلى الطور بسيناء",
+        "event": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.2467,
+          31.7784
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "الجيب (جبعون)",
+        "modern_name": "الجيب",
+        "ancient_name": "جبعون",
+        "tier": "attested",
+        "marker-color": "#7d3c98",
+        "marker-size": "large",
+        "evidence": "موقع بنظام مائي منحوت ضخم شمال غرب القدس",
+        "event": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.184,
+          31.846
+        ]
+      }
+    }
+  ]
+}

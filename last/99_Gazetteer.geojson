@@ -1,0 +1,999 @@
+{
+  "type": "FeatureCollection",
+  "name": "المعجم الجغرافي الكامل",
+  "metadata": {
+    "author": "Abdulwahed",
+    "version": "4.0",
+    "description": "كل مواقع البحث بلا مسارات، بالاسمين الحديث والقديم ودرجة الإسناد.",
+    "tier_legend": {
+      "attested": "موقع أثري مثبت بالتنقيب أو النقوش",
+      "inferred": "ممر طبيعي أو محطة مياه يرجّحها المنطق التضاريسي",
+      "road": "طريق قديم موثّق الاستعمال",
+      "toponym": "اسم مكان يحفظ ذكرى نبي الله موسى أو هارون - شاهد على استمرار التسمية لا على الحدث",
+      "hypothesis": "فرضية الباحث"
+    },
+    "naming_convention": "الاسم الحديث ثم القديم بين قوسين",
+    "coordinate_note": "[longitude, latitude] WGS84 - النقاط الساحلية مراجعة ومزاحة إلى اليابسة"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "beisan",
+        "name": "بيسان / تل الحصن (بيت شان)",
+        "short_name": "بيسان",
+        "modern_name": "بيسان / تل الحصن",
+        "ancient_name": "بيت شان",
+        "subtitle": "تل الحصن / بيت شان",
+        "tier": "attested",
+        "evidence": "مقرّ حاكم وحامية مصرية متصلة من الأسرة 18 حتى أواخر الأسرة 20؛ قوائم تحتمس الثالث ورسائل العمارنة؛ تمثال رمسيس الثالث ولوحتا سيتي الأول من الموقع.",
+        "marker-color": "#d35400",
+        "marker-size": "large",
+        "marker-symbol": "star"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.5017,
+          32.5036
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "harod",
+        "name": "ملتقى وادي جالود بنهر الأردن",
+        "short_name": "ملتقى وادي جالود",
+        "modern_name": "ملتقى وادي جالود بنهر الأردن",
+        "ancient_name": "—",
+        "tier": "inferred",
+        "evidence": "المصبّ الذي يربط سهل بيسان بمجرى النهر مباشرة - أقرب نقطة ملاحية من التل",
+        "marker-color": "#5dade2",
+        "marker-size": "large",
+        "marker-symbol": "water"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.531,
+          32.488
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "river",
+        "name": "مجرى نهر الأردن قرب بيسان",
+        "short_name": "موضع الإلقاء والالتقاط",
+        "modern_name": "مجرى نهر الأردن قرب بيسان",
+        "ancient_name": "—",
+        "subtitle": "على ضفاف نهر الأردن",
+        "tier": "hypothesis",
+        "evidence": "النقطة المقترحة لحدث الإلقاء، أسفل ملتقى وادي جالود وعلى مرمى من مركز الحكم",
+        "caveat": "فرضية بحثية",
+        "marker-color": "#2e86c1",
+        "marker-size": "large",
+        "marker-symbol": "water"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.556,
+          32.465
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "abukharaz",
+        "name": "تل أبو الخرز (يابيش جلعاد (مرجّح))",
+        "short_name": "تل أبو الخرز",
+        "modern_name": "تل أبو الخرز",
+        "ancient_name": "يابيش جلعاد (مرجّح)",
+        "subtitle": "يابيش جلعاد (مرجّح)",
+        "tier": "attested",
+        "evidence": "مستوطنة محصّنة في الأغوار الشرقية، برونزي وحديدي",
+        "marker-color": "#e59866",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.61,
+          32.32
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saidiyeh",
+        "name": "تل السعيدية (صرتان (مرجّح))",
+        "short_name": "تل السعيدية",
+        "modern_name": "تل السعيدية",
+        "ancient_name": "صرتان (مرجّح)",
+        "subtitle": "صرتان (مرجّح)",
+        "tier": "attested",
+        "evidence": "مركز بطابع مصري في الأغوار الشرقية، البرونزي المتأخر",
+        "marker-color": "#e59866",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.578,
+          32.267
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "deiralla",
+        "name": "تل دير علا (سكوت (مرجّح))",
+        "short_name": "تل دير علا",
+        "modern_name": "تل دير علا",
+        "ancient_name": "سكوت (مرجّح)",
+        "subtitle": "سكوت (مرجّح)",
+        "tier": "attested",
+        "evidence": "مستوطنة ومعبد؛ نقوش دير علا الآرامية (القرن 8 ق.م)",
+        "marker-color": "#e59866",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.6183,
+          32.2
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "damiya",
+        "name": "تل الدامية (أدم)",
+        "short_name": "تل الدامية",
+        "modern_name": "تل الدامية",
+        "ancient_name": "أدم",
+        "subtitle": "أدم / مخاضات الأردن",
+        "tier": "attested",
+        "evidence": "انسداد موثق لمجرى نهر الأردن بانهيار الضفاف الطينية: 1267م نحو 16 ساعة، و1906، و1927 نحو 21 ساعة ونصف",
+        "marker-color": "#3498db",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.546,
+          32.103
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "jericho",
+        "name": "أريحا / تل السلطان (يريحو)",
+        "short_name": "أريحا",
+        "modern_name": "أريحا / تل السلطان",
+        "ancient_name": "يريحو",
+        "subtitle": "تل السلطان / يريحو",
+        "tier": "attested",
+        "evidence": "أقدم مدينة مسوّرة معروفة؛ نبع عين السلطان الدائم",
+        "marker-color": "#27ae60",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.4436,
+          31.8711
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "quds",
+        "name": "القدس - جبل الطور (جبل الزيتون) (يبوس / أورشليم)",
+        "short_name": "القدس",
+        "modern_name": "القدس - جبل الطور (جبل الزيتون)",
+        "ancient_name": "يبوس / أورشليم",
+        "subtitle": "بيت المقدس / جبل الطور",
+        "tier": "hypothesis",
+        "evidence": "التسمية المحلية جبل الطور قديمة وموثقة",
+        "caveat": "الطور آرامية بمعنى الجبل، وتُطلق كذلك على تابور وعلى الطور بسيناء؛ الحجة تضاريسية لا لغوية",
+        "marker-color": "#229954",
+        "marker-size": "large",
+        "marker-symbol": "park"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.2467,
+          31.7784
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nablus",
+        "name": "نابلس / تل بلاطة (شكيم)",
+        "short_name": "نابلس",
+        "modern_name": "نابلس / تل بلاطة",
+        "ancient_name": "شكيم",
+        "subtitle": "تل بلاطة / شكيم",
+        "tier": "attested",
+        "evidence": "مدينة كنعانية كبرى على طريق المرتفعات؛ واردة في رسائل العمارنة",
+        "marker-color": "#2980b9",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.28,
+          32.213
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "hebron",
+        "name": "الخليل (حبرون / قرية أربع)",
+        "short_name": "الخليل",
+        "modern_name": "الخليل",
+        "ancient_name": "حبرون / قرية أربع",
+        "subtitle": "حبرون",
+        "tier": "inferred",
+        "evidence": "محطة على طريق المرتفعات",
+        "marker-color": "#2980b9",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.0998,
+          31.5326
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "beersheba",
+        "name": "بئر السبع / تل السبع (بئر شيبع)",
+        "short_name": "بئر السبع",
+        "modern_name": "بئر السبع / تل السبع",
+        "ancient_name": "بئر شيبع",
+        "subtitle": "تل السبع",
+        "tier": "attested",
+        "evidence": "بئر عميقة محفورة في الصخر؛ آخر مركز مياه ثابت قبل البرية",
+        "marker-color": "#27ae60",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.8408,
+          31.245
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "zohar",
+        "name": "وادي الزويرة / زهار",
+        "short_name": "وادي الزويرة",
+        "modern_name": "وادي الزويرة / زهار",
+        "ancient_name": "—",
+        "subtitle": "الوادي المغلق",
+        "tier": "inferred",
+        "evidence": "وادٍ ضيق ينحدر من برية الخليل جنوب مسادا وينتهي عند الحوض الضحل",
+        "marker-color": "#0074d9",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.3,
+          31.16
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "strait",
+        "name": "مضيق لينش عند اللسان",
+        "short_name": "موضع العبور",
+        "modern_name": "مضيق لينش عند اللسان",
+        "ancient_name": "—",
+        "subtitle": "مضيق لينش / اللسان",
+        "tier": "hypothesis",
+        "role": "النقطة الوحيدة في البحر الميت التي يمكن أن ينكشف قاعها - وقوعها في الماء مقصود",
+        "evidence": "عتبة عند نحو 402م تحت سطح البحر؛ الحوض الجنوبي متوسط عمقه أقل من 3 أمتار؛ جفّ فعلياً صيف 1976 فاتصل اللسان بالشاطئ الغربي",
+        "caveat": "وقوع النقطة داخل الماء مقصود - هو موضع العبور نفسه",
+        "marker-color": "#00d2d3",
+        "marker-size": "large",
+        "marker-symbol": "water"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.42,
+          31.14
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "lisan",
+        "name": "شبه جزيرة اللسان",
+        "short_name": "شبه جزيرة اللسان",
+        "modern_name": "شبه جزيرة اللسان",
+        "ancient_name": "—",
+        "subtitle": "نهاية العبور — الأردن",
+        "tier": "attested",
+        "evidence": "اللسان الفاصل بين الحوضين، مخرج العبور على الضفة الشرقية",
+        "marker-color": "#48c9b0",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.49,
+          31.19
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "karak",
+        "name": "الكرك (قير موآب / قير حارسة)",
+        "short_name": "الكرك",
+        "modern_name": "الكرك",
+        "ancient_name": "قير موآب / قير حارسة",
+        "subtitle": "قير موآب",
+        "tier": "attested",
+        "evidence": "أول مركز مرتفع على الضفة الشرقية، على طريق الملوك",
+        "marker-color": "#16a085",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.701,
+          31.18
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dhiban",
+        "name": "ذيبان (ديبون - عاصمة موآب)",
+        "short_name": "ذيبان",
+        "modern_name": "ذيبان",
+        "ancient_name": "ديبون - عاصمة موآب",
+        "subtitle": "ديبون — عاصمة موآب",
+        "tier": "attested",
+        "evidence": "موقع مسلّة ميشع الموآبية",
+        "marker-color": "#16a085",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.783,
+          31.5
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "busayra",
+        "name": "بصيرة (الطفيلة) (بُصرة - عاصمة أدوم)",
+        "short_name": "بصيرة",
+        "modern_name": "بصيرة (الطفيلة)",
+        "ancient_name": "بُصرة - عاصمة أدوم",
+        "subtitle": "بُصرة — عاصمة أدوم",
+        "tier": "attested",
+        "evidence": "عاصمة أدوم في العصر الحديدي؛ معبد وقصر منقّبان",
+        "marker-color": "#16a085",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.6167,
+          30.7333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shobak",
+        "name": "الشوبك",
+        "short_name": "الشوبك",
+        "modern_name": "الشوبك",
+        "ancient_name": "—",
+        "tier": "inferred",
+        "evidence": "محطة على طريق الملوك بين بصيرة والبتراء",
+        "marker-color": "#16a085",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.56,
+          30.53
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ainmusa",
+        "name": "عين نبي الله موسى - وادي نبي الله موسى",
+        "short_name": "وادي نبي الله موسى",
+        "modern_name": "عين نبي الله موسى - وادي نبي الله موسى",
+        "ancient_name": "—",
+        "subtitle": "عين نبي الله موسى / آبار نبي الله موسى",
+        "tier": "toponym",
+        "evidence": "نبع دائم غزير ووادٍ يحملان اسم نبي الله موسى إلى اليوم، عند مدخل البتراء",
+        "caveat": "التسمية موثقة بيزنطياً وإسلامياً؛ لا إسناد أثري إلى العصر البرونزي",
+        "marker-color": "#e67e22",
+        "marker-size": "large",
+        "marker-symbol": "water"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.5058,
+          30.3316
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "petra",
+        "name": "البتراء (رقيم / سلع)",
+        "short_name": "البتراء",
+        "modern_name": "البتراء",
+        "ancient_name": "رقيم / سلع",
+        "subtitle": "رقيم / سلع",
+        "tier": "attested",
+        "evidence": "العاصمة النبطية؛ استيطان أدومي سابق في المنطقة",
+        "marker-color": "#d4ac0d",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.4444,
+          30.3285
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "harun",
+        "name": "جبل هارون (جبل هور (بحسب التقليد))",
+        "short_name": "جبل هارون",
+        "modern_name": "جبل هارون",
+        "ancient_name": "جبل هور (بحسب التقليد)",
+        "subtitle": "الموضع التقليدي للقبر",
+        "tier": "toponym",
+        "evidence": "قمة نحو 1350م جنوب غرب البتراء، عليها مقام يُنسب إلى النبي هارون، وتحته دير بيزنطي منقّب",
+        "caveat": "الطبقات المنقّبة بيزنطية وإسلامية؛ التقليد راسخ وقديم لكنه ليس تأريخاً أثرياً",
+        "marker-color": "#e67e22",
+        "marker-size": "large",
+        "marker-symbol": "monument"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.4047,
+          30.3175
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "maan",
+        "name": "معان",
+        "short_name": "معان",
+        "modern_name": "معان",
+        "ancient_name": "معان",
+        "tier": "attested",
+        "evidence": "واحة ومحطة قوافل على طريق الملوك",
+        "marker-color": "#16a085",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.734,
+          30.192
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "faynan",
+        "name": "فينان / خربة النحاس (بونون (مرجّح))",
+        "short_name": "فينان",
+        "modern_name": "فينان / خربة النحاس",
+        "ancient_name": "بونون (مرجّح)",
+        "subtitle": "خربة النحاس",
+        "tier": "attested",
+        "evidence": "أكبر مجمع تعدين نحاس في وادي عربة",
+        "marker-color": "#a04000",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.435,
+          30.68
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gharandal",
+        "name": "غرندل",
+        "short_name": "وادي عربة (غرندل)",
+        "modern_name": "غرندل",
+        "ancient_name": "—",
+        "subtitle": "Arabah",
+        "tier": "inferred",
+        "evidence": "محطة مياه في وسط وادي عربة",
+        "marker-color": "#16a085",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.24,
+          30.19
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "timna",
+        "name": "وادي تمنع (مناجم ومعبد حتحور)",
+        "short_name": "تمنع",
+        "modern_name": "وادي تمنع",
+        "ancient_name": "مناجم ومعبد حتحور",
+        "subtitle": "معبد حتحور المصري",
+        "tier": "attested",
+        "role": "حضور مصري مؤرَّخ داخل وادي عربة نفسه، ورابط مادي بين شمال غرب الجزيرة والعربة",
+        "evidence": "معبد مصري لحتحور أنشئ في عهد سيتي الأول واستُعمل حتى رمسيس الخامس؛ مناجم نحاس مصرية في القرنين 13 و12 ق.م؛ عُثر فيه على فخار قُرَيّة المصبوغ (الفخار المدياني)، ثم على طور خيمة-معبد مدياني بعد انسحاب المصريين.",
+        "marker-color": "#c0392b",
+        "marker-size": "large",
+        "marker-symbol": "monument"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.9553,
+          29.7889
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kheleifeh",
+        "name": "تل الخليفة (عصيون جابر (مرجّح))",
+        "short_name": "تل الخليفة",
+        "modern_name": "تل الخليفة",
+        "ancient_name": "عصيون جابر (مرجّح)",
+        "subtitle": "عصيون جابر (مرجّح)",
+        "tier": "attested",
+        "evidence": "موقع محصّن عند رأس الخليج؛ فخار مدياني في طبقاته",
+        "marker-color": "#f1c40f",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.9864,
+          29.5228
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ayla",
+        "name": "العقبة (أيلة)",
+        "short_name": "أيلة / العقبة",
+        "modern_name": "العقبة",
+        "ancient_name": "أيلة",
+        "subtitle": "Aila",
+        "tier": "attested",
+        "evidence": "عقدة الطرق الوحيدة بين الشام وشمال الحجاز",
+        "marker-color": "#f1c40f",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.008,
+          29.53
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "haql",
+        "name": "حَقل",
+        "short_name": "حقل",
+        "modern_name": "حَقل",
+        "ancient_name": "—",
+        "tier": "inferred",
+        "evidence": "الممر الساحلي الضيق (الإحداثية مزاحة إلى اليابسة)",
+        "marker-color": "#16a085",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.948,
+          29.287
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ifal",
+        "name": "وادي عِفال",
+        "short_name": "وادي عِفال",
+        "modern_name": "وادي عِفال",
+        "ancient_name": "—",
+        "tier": "inferred",
+        "evidence": "الشريان الطبيعي من الساحل إلى واحة البدع (الإحداثية مزاحة إلى مجرى الوادي)",
+        "marker-color": "#16a085",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.97,
+          28.54
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "bada",
+        "name": "البدع / مغائر شعيب (مَدْيَن)",
+        "short_name": "البدع",
+        "modern_name": "البدع / مغائر شعيب",
+        "ancient_name": "مَدْيَن",
+        "subtitle": "مَدْيَن / مغائر شعيب",
+        "tier": "attested",
+        "evidence": "واحة وآبار ومقابر منحوتة بطراز نبطي. البعثة السعودية-الفرنسية ترجّح أن الواحة كانت جزءاً من الكيان الإقليمي المعروف باسم مدين في أواخر الألف الثاني ق.م.",
+        "marker-color": "#c0392b",
+        "marker-size": "large",
+        "marker-symbol": "embassy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.0208,
+          28.4783
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "tabuk",
+        "name": "تبوك",
+        "short_name": "تبوك",
+        "modern_name": "تبوك",
+        "ancient_name": "—",
+        "tier": "inferred",
+        "evidence": "محطة على المحور الشرقي من طرق شمال غرب الجزيرة",
+        "marker-color": "#7f8c8d",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.57,
+          28.38
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "qurayyah",
+        "name": "قُرَيّة",
+        "short_name": "قُرَيّة",
+        "modern_name": "قُرَيّة",
+        "ancient_name": "قُرَيّة",
+        "tier": "attested",
+        "evidence": "واحة مسوّرة ومركز إنتاج الفخار المصبوغ الذي وُجد في تمنع وتل الخليفة",
+        "caveat": "الإحداثية تقريبية",
+        "marker-color": "#9b59b6",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.05,
+          28.82
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "tayma",
+        "name": "تيماء",
+        "short_name": "تيماء",
+        "modern_name": "تيماء",
+        "ancient_name": "تيماء",
+        "tier": "attested",
+        "evidence": "أقدم واحة مسوّرة كبرى في شمال غرب الجزيرة",
+        "marker-color": "#9b59b6",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.55,
+          27.6333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ula",
+        "name": "العلا (ددان)",
+        "short_name": "العلا",
+        "modern_name": "العلا",
+        "ancient_name": "ددان",
+        "subtitle": "دادان / الحجر",
+        "tier": "attested",
+        "evidence": "عاصمة مملكتي ددان ولحيان",
+        "marker-color": "#9b59b6",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.9333,
+          26.6333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "hijr",
+        "name": "مدائن صالح (الحِجر)",
+        "short_name": "مدائن صالح",
+        "modern_name": "مدائن صالح",
+        "ancient_name": "الحِجر",
+        "subtitle": "الحِجر",
+        "tier": "attested",
+        "evidence": "المركز النبطي الجنوبي",
+        "marker-color": "#9b59b6",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.95,
+          26.79
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "khaybar",
+        "name": "خيبر (واحة خيبر المسوّرة)",
+        "short_name": "خيبر",
+        "modern_name": "خيبر",
+        "ancient_name": "واحة خيبر المسوّرة",
+        "subtitle": "واحة خيبر / النطاة",
+        "tier": "hypothesis",
+        "evidence": "سور يحيط الواحة بالكامل طوله نحو 14.5 كم بـ180 برجاً، مؤرّخ كربونياً 2250-1950 ق.م؛ وداخلها موقع النطاة: بلدة محصّنة 2.6 هكتار من نحو 2400-2000 ق.م استمرت حتى 1500 وربما 1300 ق.م.",
+        "caveat": "لا مادة إسرائيلية في طبقاتها؛ والعودة منها إلى النهر نحو 780 كم",
+        "marker-color": "#8e44ad",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.2917,
+          25.6944
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nebo",
+        "name": "جبل نيبو (نيبو)",
+        "short_name": "جبل نيبو",
+        "modern_name": "جبل نيبو",
+        "ancient_name": "نيبو",
+        "tier": "attested",
+        "evidence": "يشرف على الغور وأريحا",
+        "marker-color": "#8e44ad",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.7256,
+          31.7683
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "uyunmusa",
+        "name": "عيون نبي الله موسى",
+        "short_name": "عيون نبي الله موسى",
+        "modern_name": "عيون نبي الله موسى",
+        "ancient_name": "—",
+        "tier": "toponym",
+        "evidence": "ينابيع تحمل اسم نبي الله موسى أسفل نيبو",
+        "marker-color": "#e67e22",
+        "marker-size": "large",
+        "marker-symbol": "water"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.7414,
+          31.7797
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "madaba",
+        "name": "مادبا (ميدبا)",
+        "short_name": "مادبا",
+        "modern_name": "مادبا",
+        "ancient_name": "ميدبا",
+        "subtitle": "ميدبا",
+        "tier": "attested",
+        "evidence": "مدينة موآبية ثم بيزنطية",
+        "marker-color": "#af7ac5",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.795,
+          31.716
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "hammam",
+        "name": "تل الحمّام (أبيل شطّيم (مرجّح))",
+        "short_name": "تل الحمّام",
+        "modern_name": "تل الحمّام",
+        "ancient_name": "أبيل شطّيم (مرجّح)",
+        "subtitle": "شطّيم",
+        "tier": "inferred",
+        "evidence": "معسكر ما قبل العبور على الضفة الشرقية",
+        "marker-color": "#8e44ad",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.672,
+          31.84
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ai",
+        "name": "خربة التل / دير دبوان (عاي)",
+        "short_name": "خربة التل",
+        "modern_name": "خربة التل / دير دبوان",
+        "ancient_name": "عاي",
+        "subtitle": "عاي",
+        "tier": "attested",
+        "evidence": "موقع مرتفع بين أريحا والقدس على خط التمدد",
+        "marker-color": "#7d3c98",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.26,
+          31.917
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gibeon",
+        "name": "الجيب (جبعون)",
+        "short_name": "الجيب",
+        "modern_name": "الجيب",
+        "ancient_name": "جبعون",
+        "subtitle": "جبعون",
+        "tier": "attested",
+        "evidence": "موقع بنظام مائي منحوت ضخم شمال غرب القدس",
+        "marker-color": "#7d3c98",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.184,
+          31.846
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "mujib",
+        "name": "مصب وادي الموجب (أرنون)",
+        "short_name": "مصب وادي الموجب",
+        "modern_name": "مصب وادي الموجب",
+        "ancient_name": "أرنون",
+        "subtitle": "أرنون",
+        "tier": "hypothesis",
+        "evidence": "مقترح بديل لموضع الشق على الضفة الشرقية للبحر الميت",
+        "caveat": "مستبعد في هذه النسخة: العمق أمامه نحو 400م والضفة المقابلة جروف عين جدي",
+        "marker-color": "#8e44ad",
+        "marker-size": "medium",
+        "marker-symbol": "circle-stroked"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.579,
+          31.465
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,327 @@
+{
+  "type": "FeatureCollection",
+  "name": "الحدث الثاني: القتل والهروب إلى مدين",
+  "metadata": {
+    "author": "Abdulwahed",
+    "version": "4.0",
+    "description": "هروب فردي متخفٍّ جنوباً من محيط بيسان: طريق الغور ثم المرتفعات ثم منخفض عربة ثم الساحل إلى البدع.",
+    "tier_legend": {
+      "attested": "موقع أثري مثبت بالتنقيب أو النقوش",
+      "inferred": "ممر طبيعي أو محطة مياه يرجّحها المنطق التضاريسي",
+      "road": "طريق قديم موثّق الاستعمال",
+      "toponym": "اسم مكان يحفظ ذكرى نبي الله موسى أو هارون - شاهد على استمرار التسمية لا على الحدث",
+      "hypothesis": "فرضية الباحث"
+    },
+    "naming_convention": "الاسم الحديث ثم القديم بين قوسين",
+    "coordinate_note": "[longitude, latitude] WGS84 - النقاط الساحلية مراجعة ومزاحة إلى اليابسة"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "الحدث 2: بيسان ← مدين",
+        "stroke": "#d35400",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "note": "نحو 620 كم سيراً - يتبع درب عربة تفادياً للمرتفعات"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.5017,
+            32.5036
+          ],
+          [
+            35.4436,
+            31.8711
+          ],
+          [
+            35.0998,
+            31.5326
+          ],
+          [
+            34.8408,
+            31.245
+          ],
+          [
+            35.435,
+            30.68
+          ],
+          [
+            35.24,
+            30.19
+          ],
+          [
+            34.9553,
+            29.7889
+          ],
+          [
+            34.9864,
+            29.5228
+          ],
+          [
+            35.008,
+            29.53
+          ],
+          [
+            34.948,
+            29.287
+          ],
+          [
+            34.97,
+            28.54
+          ],
+          [
+            35.0208,
+            28.4783
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "بيسان / تل الحصن (بيت شان)",
+        "modern_name": "بيسان / تل الحصن",
+        "ancient_name": "بيت شان",
+        "tier": "attested",
+        "marker-color": "#d35400",
+        "marker-size": "large",
+        "marker-symbol": "star",
+        "evidence": "مقرّ حاكم وحامية مصرية متصلة من الأسرة 18 حتى أواخر الأسرة 20؛ قوائم تحتمس الثالث ورسائل العمارنة؛ تمثال رمسيس الثالث ولوحتا سيتي الأول من الموقع.",
+        "event": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.5017,
+          32.5036
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "أريحا / تل السلطان (يريحو)",
+        "modern_name": "أريحا / تل السلطان",
+        "ancient_name": "يريحو",
+        "tier": "attested",
+        "marker-color": "#27ae60",
+        "marker-size": "large",
+        "evidence": "أقدم مدينة مسوّرة معروفة؛ نبع عين السلطان الدائم",
+        "event": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.4436,
+          31.8711
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "الخليل (حبرون / قرية أربع)",
+        "modern_name": "الخليل",
+        "ancient_name": "حبرون / قرية أربع",
+        "tier": "inferred",
+        "marker-color": "#2980b9",
+        "marker-size": "large",
+        "evidence": "محطة على طريق المرتفعات",
+        "event": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.0998,
+          31.5326
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "بئر السبع / تل السبع (بئر شيبع)",
+        "modern_name": "بئر السبع / تل السبع",
+        "ancient_name": "بئر شيبع",
+        "tier": "attested",
+        "marker-color": "#27ae60",
+        "marker-size": "large",
+        "evidence": "بئر عميقة محفورة في الصخر؛ آخر مركز مياه ثابت قبل البرية",
+        "event": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.8408,
+          31.245
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "فينان / خربة النحاس (بونون (مرجّح))",
+        "modern_name": "فينان / خربة النحاس",
+        "ancient_name": "بونون (مرجّح)",
+        "tier": "attested",
+        "marker-color": "#a04000",
+        "marker-size": "large",
+        "evidence": "أكبر مجمع تعدين نحاس في وادي عربة",
+        "event": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.435,
+          30.68
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "غرندل",
+        "modern_name": "غرندل",
+        "ancient_name": "—",
+        "tier": "inferred",
+        "marker-color": "#16a085",
+        "marker-size": "large",
+        "evidence": "محطة مياه في وسط وادي عربة",
+        "event": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.24,
+          30.19
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "وادي تمنع (مناجم ومعبد حتحور)",
+        "modern_name": "وادي تمنع",
+        "ancient_name": "مناجم ومعبد حتحور",
+        "tier": "attested",
+        "marker-color": "#c0392b",
+        "marker-size": "large",
+        "marker-symbol": "monument",
+        "evidence": "معبد مصري لحتحور أنشئ في عهد سيتي الأول واستُعمل حتى رمسيس الخامس؛ مناجم نحاس مصرية في القرنين 13 و12 ق.م؛ عُثر فيه على فخار قُرَيّة المصبوغ (الفخار المدياني)، ثم على طور خيمة-معبد مدياني بعد انسحاب المصريين.",
+        "role": "حضور مصري مؤرَّخ داخل وادي عربة نفسه، ورابط مادي بين شمال غرب الجزيرة والعربة",
+        "event": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.9553,
+          29.7889
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "تل الخليفة (عصيون جابر (مرجّح))",
+        "modern_name": "تل الخليفة",
+        "ancient_name": "عصيون جابر (مرجّح)",
+        "tier": "attested",
+        "marker-color": "#f1c40f",
+        "marker-size": "large",
+        "evidence": "موقع محصّن عند رأس الخليج؛ فخار مدياني في طبقاته",
+        "event": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.9864,
+          29.5228
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "العقبة (أيلة)",
+        "modern_name": "العقبة",
+        "ancient_name": "أيلة",
+        "tier": "attested",
+        "marker-color": "#f1c40f",
+        "marker-size": "large",
+        "evidence": "عقدة الطرق الوحيدة بين الشام وشمال الحجاز",
+        "event": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.008,
+          29.53
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "حَقل",
+        "modern_name": "حَقل",
+        "ancient_name": "—",
+        "tier": "inferred",
+        "marker-color": "#16a085",
+        "marker-size": "large",
+        "evidence": "الممر الساحلي الضيق (الإحداثية مزاحة إلى اليابسة)",
+        "event": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.948,
+          29.287
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "وادي عِفال",
+        "modern_name": "وادي عِفال",
+        "ancient_name": "—",
+        "tier": "inferred",
+        "marker-color": "#16a085",
+        "marker-size": "large",
+        "evidence": "الشريان الطبيعي من الساحل إلى واحة البدع (الإحداثية مزاحة إلى مجرى الوادي)",
+        "event": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.97,
+          28.54
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "البدع / مغائر شعيب (مَدْيَن)",
+        "modern_name": "البدع / مغائر شعيب",
+        "ancient_name": "مَدْيَن",
+        "tier": "attested",
+        "marker-color": "#c0392b",
+        "marker-size": "large",
+        "marker-symbol": "embassy",
+        "evidence": "واحة وآبار ومقابر منحوتة بطراز نبطي. البعثة السعودية-الفرنسية ترجّح أن الواحة كانت جزءاً من الكيان الإقليمي المعروف باسم مدين في أواخر الألف الثاني ق.م.",
+        "event": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.0208,
+          28.4783
+        ]
+      }
+    }
+  ]
+}

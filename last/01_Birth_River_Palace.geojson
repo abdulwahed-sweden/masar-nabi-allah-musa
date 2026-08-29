@@ -1,0 +1,150 @@
+{
+  "type": "FeatureCollection",
+  "name": "الحدث الأول: الولادة والإلقاء في النهر",
+  "metadata": {
+    "author": "Abdulwahed",
+    "version": "4.0",
+    "description": "المشهد المحلي حول بيسان: مركز الحكم الفرعوني الإقليمي، ملتقى وادي جالود بنهر الأردن، والنقطة المقترحة لحدث الإلقاء ثم الالتقاط على الضفة.",
+    "tier_legend": {
+      "attested": "موقع أثري مثبت بالتنقيب أو النقوش",
+      "inferred": "ممر طبيعي أو محطة مياه يرجّحها المنطق التضاريسي",
+      "road": "طريق قديم موثّق الاستعمال",
+      "toponym": "اسم مكان يحفظ ذكرى نبي الله موسى أو هارون - شاهد على استمرار التسمية لا على الحدث",
+      "hypothesis": "فرضية الباحث"
+    },
+    "naming_convention": "الاسم الحديث ثم القديم بين قوسين",
+    "coordinate_note": "[longitude, latitude] WGS84 - النقاط الساحلية مراجعة ومزاحة إلى اليابسة"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "مجرى الإلقاء المقترح: من المصبّ إلى ضفة مركز الحكم",
+        "stroke": "#2e86c1",
+        "stroke-width": 5,
+        "stroke-opacity": 0.9,
+        "note": "مسافة قصيرة جداً - مشهد محلي لا رحلة"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.531,
+            32.488
+          ],
+          [
+            35.556,
+            32.465
+          ],
+          [
+            35.5017,
+            32.5036
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "بيسان / تل الحصن (بيت شان)",
+        "modern_name": "بيسان / تل الحصن",
+        "ancient_name": "بيت شان",
+        "tier": "attested",
+        "marker-color": "#d35400",
+        "marker-size": "large",
+        "marker-symbol": "star",
+        "evidence": "مقرّ حاكم وحامية مصرية متصلة من الأسرة 18 حتى أواخر الأسرة 20؛ قوائم تحتمس الثالث ورسائل العمارنة؛ تمثال رمسيس الثالث ولوحتا سيتي الأول من الموقع.",
+        "event": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.5017,
+          32.5036
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ملتقى وادي جالود بنهر الأردن",
+        "modern_name": "ملتقى وادي جالود بنهر الأردن",
+        "ancient_name": "—",
+        "tier": "inferred",
+        "marker-color": "#5dade2",
+        "marker-size": "large",
+        "marker-symbol": "water",
+        "evidence": "المصبّ الذي يربط سهل بيسان بمجرى النهر مباشرة - أقرب نقطة ملاحية من التل",
+        "event": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.531,
+          32.488
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "مجرى نهر الأردن قرب بيسان",
+        "modern_name": "مجرى نهر الأردن قرب بيسان",
+        "ancient_name": "—",
+        "tier": "hypothesis",
+        "marker-color": "#2e86c1",
+        "marker-size": "large",
+        "marker-symbol": "water",
+        "evidence": "النقطة المقترحة لحدث الإلقاء، أسفل ملتقى وادي جالود وعلى مرمى من مركز الحكم",
+        "event": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.556,
+          32.465
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "تل السعيدية (صرتان (مرجّح))",
+        "modern_name": "تل السعيدية",
+        "ancient_name": "صرتان (مرجّح)",
+        "tier": "attested",
+        "marker-color": "#e59866",
+        "marker-size": "large",
+        "evidence": "مركز بطابع مصري في الأغوار الشرقية، البرونزي المتأخر",
+        "event": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.578,
+          32.267
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "تل أبو الخرز (يابيش جلعاد (مرجّح))",
+        "modern_name": "تل أبو الخرز",
+        "ancient_name": "يابيش جلعاد (مرجّح)",
+        "tier": "attested",
+        "marker-color": "#e59866",
+        "marker-size": "large",
+        "evidence": "مستوطنة محصّنة في الأغوار الشرقية، برونزي وحديدي",
+        "event": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.61,
+          32.32
+        ]
+      }
+    }
+  ]
+}
