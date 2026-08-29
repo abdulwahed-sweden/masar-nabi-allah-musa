@@ -33,7 +33,7 @@ The app reads neighbouring files, so `fetch` is blocked under `file://` — a do
 open shows an Arabic message explaining exactly this. Serve the folder:
 
 ```bash
-cd /Users/mansour/Desktop/Profet-mosa
+cd Profet-mosa
 python3 -m http.server 8000
 open http://localhost:8000/
 ```
@@ -57,8 +57,8 @@ The project is exactly 13 files. Every one of them is loaded at runtime except t
 Earlier drafts (the static `atlas.html` plate viewer, `moses/`, `maps/`, `images/`, the
 root-level draft GeoJSON/KML and `00B_Egyptian_Presence.geojson`) were deleted on
 2026-08-29. They held no site the gazetteer does not already have — only superseded
-coordinates for the same places. Archive:
-`~/Desktop/Profet-mosa-superseded-2026-08-29.tar.gz` (16 MB, delete when you no longer want it).
+coordinates for the same places. They were archived to a tarball outside the repo before
+deletion; that archive is local to the author's machine and is not part of this project.
 
 ## The evidence-tier vocabulary (the core discipline)
 
