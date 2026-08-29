@@ -506,7 +506,7 @@ function buildSteps(){
       <div class="meta">
         <span class="chip"><b>${e.stations.length}</b> محطة</span>
         ${e.refs.length?`<span class="chip"><b>${e.refs.length}</b> موقع مرجعي</span>`:''}
-        ${e.lines.length?`<span class="chip"><b>${routeKm(e)}</b> كم تقريباً</span>`:''}
+        ${routeKm(e)?`<span class="chip"><b>${routeKm(e)}</b> كم على الخط المرسوم</span>`:''}
       </div>
     </div></section>`;
   }
@@ -537,10 +537,16 @@ function buildSteps(){
   });
 }
 
+const isDashed=ln=>/امتداد|محتمل/.test(ln.props.name||'');
+
+/* يقيس المسار المؤكَّد وحده - الامتداد المحتمل ليس مساراً يُقاس */
 function routeKm(e){
   let m=0;
-  for(const ln of e.lines) for(let i=1;i<ln.coords.length;i++)
-    m+=map.distance([ln.coords[i-1][1],ln.coords[i-1][0]],[ln.coords[i][1],ln.coords[i][0]]);
+  for(const ln of e.lines){
+    if(isDashed(ln)) continue;
+    for(let i=1;i<ln.coords.length;i++)
+      m+=map.distance([ln.coords[i-1][1],ln.coords[i-1][0]],[ln.coords[i][1],ln.coords[i][0]]);
+  }
   return Math.round(m/1000/10)*10;
 }
 
@@ -559,7 +565,7 @@ function renderEvent(e){
   const paths=[];
   for(const ln of e.lines){
     const latlngs=ln.coords.map(c=>[c[1],c[0]]);
-    const dashed=/امتداد|محتمل/.test(ln.props.name||'');
+    const dashed=isDashed(ln);
     /* لا حاشية تحت الخط المتقطع - وإلا ظهرت الفجوات خطاً رمادياً متصلاً */
     if(!dashed) L.polyline(latlngs,{pane:'lines',color:'#0B0E13',weight:7,opacity:.5,
       lineCap:'round',lineJoin:'round',interactive:false}).addTo(eventLayer);

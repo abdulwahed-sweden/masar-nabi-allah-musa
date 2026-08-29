@@ -138,6 +138,24 @@ for f in glob.glob('last/*.geojson')+['data/narrative.json','index.html']:
 - `declutter()` tries each label on the left of its dot, then the right (`.lb.alt`), before
   hiding it. The honorific makes labels long, and two-sided placement is what keeps them
   on the map — do not reduce it to one side.
+
+### Two kinds of distance — keep them distinct
+
+A card can show two different numbers for the same journey, and they are **not** in conflict:
+
+- the `dek` in `narrative.json` carries the researcher's **overland estimate** (event 2:
+  نحو 620 كم), which accounts for real walking over terrain;
+- the chip carries the **measured length of the drawn polyline** (event 2: 510 كم), summed
+  from station to station.
+
+The chip is therefore labelled `كم على الخط المرسوم` — "along the drawn line" — so the
+smaller figure reads as a different measurement rather than a contradiction. A straight
+polyline always underestimates a real route; a ~20% gap is expected, not a bug.
+
+`routeKm()` skips tentative lines (`isDashed`), and the chip is omitted when the result is
+zero. That is why event 5 shows no distance: the wandering is a zone, and its only line is
+the possible Khaybar extension — measuring it would contradict the card's own note that
+التيه يُرسم نطاقاً لا خطاً.
 - Labels are decluttered greedily every zoom/move — stations first, then reference sites.
   Anything that cannot find room is hidden rather than overlapped.
 - The route draw-on is decoration: it clears its own dash after 1.7s and is skipped under
